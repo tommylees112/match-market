@@ -1,4 +1,4 @@
-class CreateOdds < ActiveRecord::Migration[5.1]
+class CreateOdds < ActiveRecord::Migration[5.0]
   def change
     create_table :odds do |t|
       t.references :match, foreign_key: true
