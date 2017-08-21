@@ -15,16 +15,16 @@ ActiveRecord::Schema.define(version: 20170821154325) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "bookings", id: :bigserial, force: :cascade do |t|
-    t.bigint   "user_id"
-    t.bigint   "odds_id"
+  create_table "bookings", force: :cascade do |t|
+    t.integer  "user_id"
+    t.integer  "odds_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["odds_id"], name: "index_bookings_on_odds_id", using: :btree
     t.index ["user_id"], name: "index_bookings_on_user_id", using: :btree
   end
 
-  create_table "matches", id: :bigserial, force: :cascade do |t|
+  create_table "matches", force: :cascade do |t|
     t.datetime "created_at",      null: false
     t.datetime "updated_at",      null: false
     t.string   "home_team"
@@ -34,13 +34,13 @@ ActiveRecord::Schema.define(version: 20170821154325) do
     t.datetime "match_date"
     t.integer  "gameweek"
     t.string   "league"
-    t.string   "home_logo"
-    t.string   "away_logo"
   end
 
-  create_table "odds", id: :bigserial, force: :cascade do |t|
+  create_table "odds", force: :cascade do |t|
     t.bigint   "match_id"
     t.bigint   "user_id"
+    t.string   "home_logo"
+    t.string   "away_logo"
     t.integer  "odds"
     t.string   "outcome"
     t.datetime "created_at", null: false
@@ -49,7 +49,7 @@ ActiveRecord::Schema.define(version: 20170821154325) do
     t.index ["user_id"], name: "index_odds_on_user_id", using: :btree
   end
 
-  create_table "users", id: :bigserial, force: :cascade do |t|
+  create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
     t.string   "encrypted_password",     default: "", null: false
     t.string   "reset_password_token"
