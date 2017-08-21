@@ -34,13 +34,13 @@ ActiveRecord::Schema.define(version: 20170821154325) do
     t.datetime "match_date"
     t.integer  "gameweek"
     t.string   "league"
+    t.string   "home_logo"
+    t.string   "away_logo"
   end
 
   create_table "odds", force: :cascade do |t|
-    t.bigint   "match_id"
-    t.bigint   "user_id"
-    t.string   "home_logo"
-    t.string   "away_logo"
+    t.integer  "match_id"
+    t.integer  "user_id"
     t.integer  "odds"
     t.string   "outcome"
     t.datetime "created_at", null: false
