@@ -1,19 +1,25 @@
+<%= link_to match_path(match) do  %>
 <div class="card-container">
   <div class="card">
     <div class="card-teams">
       <div class="left-team">
-        <%= image_tag 'logo.png', class:"team-logo" %>
-        <h4>Real Madrid</h4>
+        <% if match.home_logo %>
+          <% photo =  match.home_logo %>
+        <% else %>
+          <% photo =  "logo.png" %>
+        <% end %>
+        <%= image_tag photo, class:"team-logo" %>
+        <h4><%= match.home_team %></h4>
       </div>
         <span>VS</span>
       <div class="right-team">
         <%= image_tag 'logo.png', class:"team-logo" %>
-        <h4>FC Barcelona</h4>
+        <h4><%= match.away_team %></h4>
       </div>
     </div>
 
     <div class="card-date">
-      <span>09/09/2017 21:00</span>
+      <span><%= match.match_date %></span>
     </div>
 
     <div class="card-stadium">
@@ -25,4 +31,6 @@
     *****
   </div>
 </div>
+<% end %>
+
 

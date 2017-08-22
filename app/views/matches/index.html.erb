@@ -4,9 +4,11 @@
     <p>earn while you enjoy</p>
     <div class="index-card-container">
       <div class="row">
+      <% @matches.each do |match| %>
         <div class="col-xs-12 col-sm-6 col-md-4">
-          <%= render 'shared/card' %>
+          <%= render 'shared/card', match: match %>
         </div>
+        <% end %>
       </div>
     </div>
   </div>
