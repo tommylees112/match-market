@@ -2,14 +2,64 @@
    <div class="cover-content">
     <h1>Never miss a match</h1>
     <p>earn while you enjoy</p>
+    <%= render 'shared/tabs' %>
     <div class="index-card-container">
-      <div class="row">
-      <% @matches.each do |match| %>
-        <div class="col-xs-12 col-sm-6 col-md-4">
-          <%= render 'shared/card', match: match %>
+
+      <div class="fixtures active" id="premiership">
+        <div class="row">
+        <% @premiership_matches.each do |match| %>
+            <div class="col-xs-12 col-sm-6 col-md-4">
+              <%= render 'shared/card', match: match %>
+            </div>
+          <% end %>
         </div>
-        <% end %>
+        <%= paginate @premiership_matches %>
       </div>
+
+      <div class="fixtures" id="bundesliga">
+        <div class="row">
+          <% @bundesliga_matches.each do |match| %>
+            <div class="col-xs-12 col-sm-6 col-md-4">
+              <%= render 'shared/card', match: match %>
+            </div>
+          <% end %>
+        </div>
+        <%= paginate @bundesliga_matches %>
+      </div>
+
+      <div class="fixtures" id="laliga">
+        <div class="row">
+          <% @laliga_matches.each do |match| %>
+              <div class="col-xs-12 col-sm-6 col-md-4">
+                <%= render 'shared/card', match: match %>
+              </div>
+          <% end %>
+        </div>
+        <%= paginate @laliga_matches %>
+      </div>
+
+      <div class="fixtures" id="ligue1">
+        <div class="row">
+          <% @ligue1_matches.each do |match| %>
+            <div class="col-xs-12 col-sm-6 col-md-4">
+              <%= render 'shared/card', match: match %>
+            </div>
+            <% end %>
+        </div>
+        <%= paginate @ligue1_matches %>
+      </div>
+
+      <div class="fixtures" id="serieA">
+        <div class="row">
+            <% @serieA_matches.each do |match| %>
+            <div class="col-xs-12 col-sm-6 col-md-4">
+              <%= render 'shared/card', match: match %>
+            </div>
+            <% end %>
+        </div>
+        <%= paginate @serieA_matches %>
+      </div>
+
     </div>
   </div>
 </div>
