@@ -25,5 +25,10 @@
 }
 
 
+body {
+  background-image: linear-gradient(-180deg, rgba(234, 82, 111, 0.43) 7%, rgba(244, 244, 244, 0.43) 38% ), image-url("index-cover.png");
+  background-size: cover !important;
+  min-height: 100vh;
 
+}
 
