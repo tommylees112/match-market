@@ -1,0 +1,6 @@
+.fixtures {
+  display: none;
+  &.active {
+    display: block;
+  }
+}

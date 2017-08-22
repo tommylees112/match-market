@@ -8,6 +8,7 @@ gem 'pg'
 gem 'puma'
 gem 'rails', '5.0.5'
 gem 'redis'
+gem 'kaminari'
 
 gem 'autoprefixer-rails'
 gem 'bootstrap-sass'
@@ -16,6 +17,8 @@ gem 'jquery-rails'
 gem 'sass-rails'
 gem 'simple_form'
 gem 'uglifier'
+
+gem 'kaminari'
 
 group :development, :test do
   gem 'pry-byebug'

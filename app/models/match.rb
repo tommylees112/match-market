@@ -1,4 +1,5 @@
 class Match < ApplicationRecord
+  paginates_per 15
   has_many :odds
   has_many :bookings, through: :odds
   validates :home_team, presence: true

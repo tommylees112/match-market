@@ -1,6 +1,12 @@
 class MatchesController < ApplicationController
   def index
     @matches = Match.all
+    @premiership_matches = Match.where(league: "Premier League 2017/18").page(params[:page])
+    @bundesliga_matches = Match.where(league: "Bundesliga 2017/18").page(params[:page])
+    @laliga_matches = Match.where(league: "La Liga 2017/18").page(params[:page])
+    @ligue1_matches = Match.where(league: "Ligue 1 2017/18").page(params[:page])
+    @serieA_matches = Match.where(league: "Serie A 2017/18").page(params[:page])
+
   end
 
   def show
