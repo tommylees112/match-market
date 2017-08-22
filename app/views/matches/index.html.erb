@@ -2,9 +2,38 @@
    <div class="cover-content">
     <h1>Never miss a match</h1>
     <p>earn while you enjoy</p>
+    <%= render 'shared/tabs' %>
     <div class="index-card-container">
-      <div class="row">
-      <% @matches.each do |match| %>
+      <div class="row fixtures active" id="premiership">
+      <% @premiership_matches.each do |match| %>
+        <div class="col-xs-12 col-sm-6 col-md-4">
+          <%= render 'shared/card', match: match %>
+        </div>
+        <% end %>
+      </div>
+      <div class="row fixtures" id="bundesliga">
+      <% @bundesliga_matches.each do |match| %>
+        <div class="col-xs-12 col-sm-6 col-md-4">
+          <%= render 'shared/card', match: match %>
+        </div>
+        <% end %>
+      </div>
+      <div class="row fixtures" id="laliga">
+      <% @laliga_matches.each do |match| %>
+        <div class="col-xs-12 col-sm-6 col-md-4">
+          <%= render 'shared/card', match: match %>
+        </div>
+        <% end %>
+      </div>
+      <div class="row fixtures" id="ligue1">
+      <% @ligue1_matches.each do |match| %>
+        <div class="col-xs-12 col-sm-6 col-md-4">
+          <%= render 'shared/card', match: match %>
+        </div>
+        <% end %>
+      </div>
+      <div class="row fixtures" id="serieA">
+      <% @serieA_matches.each do |match| %>
         <div class="col-xs-12 col-sm-6 col-md-4">
           <%= render 'shared/card', match: match %>
         </div>
