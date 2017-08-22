@@ -19,6 +19,7 @@ gem 'simple_form'
 gem 'uglifier'
 
 gem 'kaminari'
+gem 'omniauth-facebook'
 
 group :development, :test do
   gem 'pry-byebug'
