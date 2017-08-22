@@ -1,5 +1,4 @@
 <%= link_to match_path(match) do  %>
-<div class="card-container">
   <div class="card">
     <div class="card-teams">
       <div class="left-team">
@@ -9,9 +8,10 @@
           <% photo =  "logo.png" %>
         <% end %>
         <%= image_tag photo, class:"team-logo" %>
-        <h4><%= match.home_team %></h4>
+        <h5><%= match.home_team %></h5>
+        <p class="t-shadow"><%= match.goals_home_team %></p>
       </div>
-        <span>VS</span>
+        <span class="t-shadow">VS</span>
       <div class="right-team">
       <% if match.away_logo %>
           <% photo = match.away_logo %>
@@ -19,7 +19,8 @@
           <% photo =  "logo.png" %>
         <% end %>
         <%= image_tag photo, class:"team-logo" %>
-        <h4><%= match.away_team %></h4>
+        <h5><%= match.away_team %></h5>
+        <p class="t-shadow"><%= match.goals_away_team %></p>
       </div>
     </div>
 
@@ -31,11 +32,8 @@
       <i class="fa fa-futbol-o fa-2x" aria-hidden="true"></i>
       <span>Camp Nou</span>
     </div>
+  <p class="status"><%= match.status %></p>
   </div>
-  <div class="card-popularity">
-    *****
-  </div>
-</div>
 <% end %>
 
 

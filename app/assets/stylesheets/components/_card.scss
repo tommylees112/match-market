@@ -1,16 +1,15 @@
-.card-container {
-  height: 150px;
-  background-color: transparent;
-  margin: 20px;
-}
 
 .card {
-transition: 0.4s;
-color:white;
-padding: 20px;
-background-image: linear-gradient(-133deg, rgba(0, 206, 198, 0.2) 0%, rgba(234, 82, 111, 0.2) 100%);
-box-shadow: 3px 4px 18px 1px rgba(0,0,0,0.45);
-margin-bottom: 15px;
+  height: 300px;
+
+  background-color: transparent;
+  position: relative;
+  transition: 0.4s;
+  color:white;
+  padding: 20px;
+  background-image: linear-gradient(-133deg, rgba(0, 206, 198, 0.2) 0%, rgba(234, 82, 111, 0.2) 100%);
+  box-shadow: 3px 4px 18px 1px rgba(0,0,0,0.45);
+  margin-bottom: 15px;
   margin-top: 20px;
  &:hover {
     opacity: 0.7;
@@ -20,13 +19,20 @@ margin-bottom: 15px;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    h4 {
-      font-size:15px;
+    .t-shadow {
       text-shadow: 0 1px 3px rgba(0,0,0,0.6);
+    }
+    h5 {
+      font-size:14px;
+      text-shadow: 0 1px 3px rgba(0,0,0,0.6);
+      display: flex;
+      align-items:center;
+      height:55px;
+      justify-content: center;
     }
 
     .team-logo {
-      width: 50px;
+      height: 50px;
     }
   }
 
@@ -45,11 +51,19 @@ margin-bottom: 15px;
     text-align:center;
     font-size:15px;
     text-shadow: 0 1px 3px rgba(0,0,0,0.6);
+    margin-bottom: 10px;
   }
 
   .card-stadium {
     text-align:center;
     font-size:15px;
+    text-shadow: 0 1px 3px rgba(0,0,0,0.6);
+  }
+
+
+  .status {
+    position:absolute;
+    bottom: 10px;
     text-shadow: 0 1px 3px rgba(0,0,0,0.6);
   }
 }

@@ -6,6 +6,7 @@ class MatchesController < ApplicationController
     @laliga_matches = Match.where(league: "La Liga 2017/18").page(params[:page])
     @ligue1_matches = Match.where(league: "Ligue 1 2017/18").page(params[:page])
     @serieA_matches = Match.where(league: "Serie A 2017/18").page(params[:page])
+
   end
 
   def show
