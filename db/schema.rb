@@ -16,8 +16,8 @@ ActiveRecord::Schema.define(version: 20170821154325) do
   enable_extension "plpgsql"
 
   create_table "bookings", force: :cascade do |t|
-    t.integer  "user_id"
-    t.integer  "odds_id"
+    t.bigint   "user_id"
+    t.bigint   "odds_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["odds_id"], name: "index_bookings_on_odds_id", using: :btree
@@ -39,8 +39,8 @@ ActiveRecord::Schema.define(version: 20170821154325) do
   end
 
   create_table "odds", force: :cascade do |t|
-    t.integer  "match_id"
-    t.integer  "user_id"
+    t.bigint   "match_id"
+    t.bigint   "user_id"
     t.integer  "odds"
     t.string   "outcome"
     t.datetime "created_at", null: false

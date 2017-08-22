@@ -11,16 +11,55 @@ require 'json'
 require 'open-uri'
 
 premier_fixtures_url = 'http://api.football-data.org/v1/competitions/445/fixtures'
-premier_teams_url = 'http://api.football-data.org/v1/competitions/445/teams'
+premier_fixtures_serialized = open(premier_fixtures_url).read
+premier_fixtures = JSON.parse(premier_fixtures_serialized)
 
-bundesliga_fixtures_url = 'http://api.football-data.org/v1/competitions/453/fixtures'
-premier_teams_url = 'http://api.football-data.org/v1/competitions/453/teams'
+premier_fixtures["fixtures"].each do |fixture|
+  home_team = fixture["homeTeamName"]
+  goals_home_team = fixture["result"]["goalsHomeTeam"]
 
-premier_fixtures_url = 'http://api.football-data.org/v1/competitions/445/fixtures'
-premier_teams_url = 'http://api.football-data.org/v1/competitions/445/teams'
+  away_team = fixture["awayTeamName"]
+  goals_away_team = fixture["result"]["goalsAwayTeam"]
 
-premier_fixtures_url = 'http://api.football-data.org/v1/competitions/445/fixtures'
-premier_teams_url = 'http://api.football-data.org/v1/competitions/445/teams'
+  matchday = fixture["matchday"]
+  date = fixture["date"]
 
-premier_fixtures_url = 'http://api.football-data.org/v1/competitions/445/fixtures'
+end
+
+
 premier_teams_url = 'http://api.football-data.org/v1/competitions/445/teams'
+premier_teams_serialized = open(premier_teams_url).read
+premier_teams = JSON.parse(premier_teams_serialized)
+
+# bundesliga_fixtures_url = 'http://api.football-data.org/v1/competitions/453/fixtures'
+# bundesliga_fixtures_serialized = open(bundesliga_fixtures_url).read
+# $bundesliga_fixtures = JSON.parse(bundesliga_fixtures_serialized)
+# bundesliga_teams_url = 'http://api.football-data.org/v1/competitions/453/teams'
+# bundesliga_teams_serialized = open(bundesliga_teams_url).read
+# $bundesliga_teams = JSON.parse(bundesliga_teams_serialized)
+
+# ligue1_fixtures_url = 'http://api.football-data.org/v1/competitions/450/fixtures'
+# ligue1_fixtures_serialized = open(ligue1_fixtures_url).read
+# $ligue1_fixtures = JSON.parse(ligue1_fixtures_serialized)
+# ligue1_teams_url = 'http://api.football-data.org/v1/competitions/450/teams'
+# ligue1_teams_serialized = open(ligue1_teams_url).read
+# $ligue1_teams = JSON.parse(ligue1_teams_serialized)
+
+# laLiga_fixtures_url = 'http://api.football-data.org/v1/competitions/455/fixtures'
+# laLiga_fixtures_serialized = open(laLiga_fixtures_url).read
+# $laLiga_fixtures = JSON.parse(laLiga_fixtures_serialized)
+# laLiga_teams_url = 'http://api.football-data.org/v1/competitions/455/teams'
+# laLiga_teams_serialized = open(laLiga_teams_url).read
+# $laLiga_teams = JSON.parse(laLiga_teams_serialized)
+
+# serieA_fixtures_url = 'http://api.football-data.org/v1/competitions/456/fixtures'
+# serieA_fixtures_serialized = open(serieA_fixtures_url).read
+# $serieA_fixtures = JSON.parse(serieA_fixtures_serialized)
+# serieA_teams_url = 'http://api.football-data.org/v1/competitions/456/teams'
+# serieA_teams_serialized = open(serieA_teams_url).read
+# $serieA_teams = JSON.parse(serieA_teams_serialized)
+
+
+
+
+
