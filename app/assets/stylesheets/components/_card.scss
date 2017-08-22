@@ -19,6 +19,9 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+    .t-shadow {
+      text-shadow: 0 1px 3px rgba(0,0,0,0.6);
+    }
     h5 {
       font-size:14px;
       text-shadow: 0 1px 3px rgba(0,0,0,0.6);

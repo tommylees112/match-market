@@ -9,9 +9,9 @@
         <% end %>
         <%= image_tag photo, class:"team-logo" %>
         <h5><%= match.home_team %></h5>
-        <p><%= match.goals_home_team %></p>
+        <p class="t-shadow"><%= match.goals_home_team %></p>
       </div>
-        <span>VS</span>
+        <span class="t-shadow">VS</span>
       <div class="right-team">
       <% if match.away_logo %>
           <% photo = match.away_logo %>
@@ -20,7 +20,7 @@
         <% end %>
         <%= image_tag photo, class:"team-logo" %>
         <h5><%= match.away_team %></h5>
-        <p><%= match.goals_away_team %></p>
+        <p class="t-shadow"><%= match.goals_away_team %></p>
       </div>
     </div>
 
