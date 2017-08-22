@@ -2,10 +2,14 @@
     <%= render "shared/match_show_head" %>
     <%= render "shared/match_tab" %>
 
-<!--     <div class="container">
+
+  <div class="container">
       <div class="row">
-        <%# @match.odds.each do |odd| %>
-        <div class="col-xs-6 col-sm-4">
-      </div>
-    </div> -->
+        <% @match.odds.each do |odd| %>
+          <div class="col-xs-6 col-sm-4">
+            <%= render "odds/odds_cards", odds: odd %>
+          </div>
+        <% end %>
+    </div>
+
 </div>
