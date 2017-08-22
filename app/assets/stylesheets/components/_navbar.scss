@@ -34,16 +34,20 @@
 .navbar-wagon-item {
   cursor: pointer;
   padding: 0 20px;
+  text-decoration: none;
 }
 
 /* Navbar link */
 .navbar-wagon-link {
-  color: #616668;
+  color: #D8D8D8;
   font-size: 14px;
 }
-.navbar-wagon-link:hover {
-  color: #da552f;
+.navbar-wagon-link:hover, {
+  color: #50FFB1;
   text-decoration: none;
+}
+.navbar-wagon-link i {
+  margin-left: 10px;
 }
 
 /* Dropdown menu */
