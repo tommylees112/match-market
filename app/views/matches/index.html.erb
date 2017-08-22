@@ -1,8 +1,11 @@
+<div class="banner">
+  <div class="banner-content">
+    <h1>Never miss a match</h1>
+    <p>earn while you enjoy</p>
+  </div>
+</div>
 <div class="wrapper-main">
   <div class="container">
-    <div class="cover-content">
-      <h1>Never miss a match</h1>
-      <p>earn while you enjoy</p>
       <div class="index-card-container">
         <div class="row">
         <% @matches.each do |match| %>
@@ -12,7 +15,6 @@
           <% end %>
         </div>
       </div>
-    </div>
     <%= paginate @matches %>
   </div>
 </div>
