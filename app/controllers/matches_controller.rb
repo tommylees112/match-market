@@ -5,5 +5,6 @@ class MatchesController < ApplicationController
 
   def show
     @match = Match.find(params[:id])
+    @odds = @match.odds
   end
 end
