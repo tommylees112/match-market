@@ -23,13 +23,32 @@ premier_fixtures["fixtures"].each do |fixture|
 
   matchday = fixture["matchday"]
   date = fixture["date"]
+  status = fixture["status"]
 
+  Match.create(home_team: home_team, away_team: away_team, goals_home_team: goals_home_team, goals_away_team: goals_away_team, gameweek: matchday, match_date: date, status: status, league: "Premier League 2017/18")
 end
-
 
 premier_teams_url = 'http://api.football-data.org/v1/competitions/445/teams'
 premier_teams_serialized = open(premier_teams_url).read
 premier_teams = JSON.parse(premier_teams_serialized)
+
+team_logos = {}
+premier_teams["teams"].each do |team|
+  team_name = team["name"]
+  crest_url = team["crestUrl"]
+  team_logos[team_name] = crest_url
+end
+# p team_logos["Arsenal FC"]
+
+Match.all.to_a.each do |match|
+  home_team_name = match.home_team
+  match.home_logo = team_logos[home_team_name]
+
+  away_team_name = match.away_team
+  match.away_logo = team_logos[away_team_name]
+  match.save!
+end
+
 
 # bundesliga_fixtures_url = 'http://api.football-data.org/v1/competitions/453/fixtures'
 # bundesliga_fixtures_serialized = open(bundesliga_fixtures_url).read
