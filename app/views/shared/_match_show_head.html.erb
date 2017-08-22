@@ -1,0 +1,35 @@
+<div class="container">
+  <div class="match-header">
+      <div class="col-xs-3">
+        <div class="team-icon">
+          <% if @match.home_logo %>
+            <% photo = @match.home_logo %>
+          <% else %>
+            <% photo = "logo.png" %>
+          <% end %>
+          <%= image_tag photo, class:"team-logo" %>
+        </div>
+      </div>
+      <div class="col-xs-2">
+        <div class="vs text-center">
+          <h2>VS</h2>
+        </div>
+      </div>
+      <div class="col-xs-3">
+        <div class="team-icon">
+          <% if @match.away_logo %>
+            <% photo = @match.away_logo %>
+          <% else %>
+            <% photo = "logo.png" %>
+          <% end %>
+          <%= image_tag photo, class:"team-logo" %>
+        </div>
+      </div>
+  </div>
+  <div class="match-date text-center">
+    <% date = @match.match_date %>
+     <%= date.strftime("%A, %B %e") %>
+  </div>
+</div>
+
+
