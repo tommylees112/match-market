@@ -1,16 +1,18 @@
-<div class="container">
-   <div class="cover-content">
-    <h1>Never miss a match</h1>
-    <p>earn while you enjoy</p>
-    <div class="index-card-container">
-      <div class="row">
-      <% @matches.each do |match| %>
-        <div class="col-xs-12 col-sm-6 col-md-4">
-          <%= render 'shared/card', match: match %>
+<div class="wrapper-main">
+  <div class="container">
+    <div class="cover-content">
+      <h1>Never miss a match</h1>
+      <p>earn while you enjoy</p>
+      <div class="index-card-container">
+        <div class="row">
+        <% @matches.each do |match| %>
+          <div class="col-xs-12 col-sm-6 col-md-4">
+            <%= render 'shared/card', match: match %>
+          </div>
+          <% end %>
         </div>
-        <% end %>
       </div>
     </div>
+    <%= paginate @matches %>
   </div>
 </div>
-
