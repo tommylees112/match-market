@@ -1,4 +1,4 @@
-OUTCOME = ["home", "away", "draw"]
+OUTCOME = ["Home", "Away", "Draw"]
 
 Match.first(5).each do |match|
   OUTCOME.each do |outcome|
