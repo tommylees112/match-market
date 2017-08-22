@@ -13,7 +13,12 @@
       </div>
         <span>VS</span>
       <div class="right-team">
-        <%= image_tag 'logo.png', class:"team-logo" %>
+      <% if match.away_logo %>
+          <% photo = match.away_logo %>
+        <% else %>
+          <% photo =  "logo.png" %>
+        <% end %>
+        <%= image_tag photo, class:"team-logo" %>
         <h4><%= match.away_team %></h4>
       </div>
     </div>
