@@ -10,9 +10,10 @@ class MatchesController < ApplicationController
 
   def show
     @match = Match.find(params[:id])
+    @odd = Odd.new
     @all_odds = @match.odds.all.order(:odds)
-    @home_odds = @match.odds.where(outcome: "home").order(:odds)
-    @away_odds = @match.odds.where(outcome: "away").order(:odds)
-    @draw_odds = @match.odds.where(outcome: "draw").order(:odds)
+    @home_odds = @match.odds.where(outcome: "Home").order(:odds)
+    @away_odds = @match.odds.where(outcome: "Away").order(:odds)
+    @draw_odds = @match.odds.where(outcome: "Draw").order(:odds)
   end
 end
