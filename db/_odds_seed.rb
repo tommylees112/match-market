@@ -1,4 +1,4 @@
-OUTCOME = ["home", "away", "draw"]
+OUTCOME = ["Home", "Away", "Draw"]
 
 Match.first(5).each do |match|
   OUTCOME.each do |outcome|
@@ -17,15 +17,15 @@ def generate_odd_params(odd)
   odd.save
 end
 
-# Match.all.each do |match|
-#   OUTCOME.each do |outcome|
-#     5.times do
-#       odd = Odd.new(match: match)
-#       odd.outcome = outcome
-#       odds_number = rand(1.1..2.0).round(2)
-#       odd.odds = odds_number
-#       odd.user = User.find(1)
-#       odd.save
-#     end
-#   end
-# end
+Match.all.each do |match|
+  OUTCOME.each do |outcome|
+    5.times do
+      odd = Odd.new(match: match)
+      odd.outcome = outcome
+      odds_number = rand(1.1..2.0).round(2)
+      odd.odds = odds_number
+      odd.user = User.find(1)
+      odd.save
+    end
+  end
+end

@@ -6,5 +6,5 @@ class Odd < ApplicationRecord
   validates :match, presence: true
   validates :user, presence: true
   validates :odds, presence: true, numericality: true
-  validates :outcome, presence: true, inclusion: { in: ["home", "away", "draw"] }
+  validates :outcome, presence: true, inclusion: { in: ["Home", "Away", "Draw"] }
 end

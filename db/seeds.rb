@@ -19,7 +19,7 @@ premier_fixtures["fixtures"].each do |fixture|
   Match.create!(home_team: home_team, away_team: away_team, goals_home_team: goals_home_team, goals_away_team: goals_away_team, gameweek: matchday, match_date: date, status: status, league: "Premier League 2017/18")
 end
 
-bundesliga_fixtures_url = 'http://api.football-data.org/v1/competitions/453/fixtures'
+bundesliga_fixtures_url = 'http://api.football-data.org/v1/competitions/452/fixtures'
 bundesliga_fixtures_serialized = open(bundesliga_fixtures_url).read
 bundesliga_fixtures = JSON.parse(bundesliga_fixtures_serialized)
 
@@ -83,7 +83,7 @@ premier_teams_url = 'http://api.football-data.org/v1/competitions/445/teams'
 premier_teams_serialized = open(premier_teams_url).read
 premier_teams = JSON.parse(premier_teams_serialized)
 
-bundesliga_teams_url = 'http://api.football-data.org/v1/competitions/453/teams'
+bundesliga_teams_url = 'http://api.football-data.org/v1/competitions/452/teams'
 bundesliga_teams_serialized = open(bundesliga_teams_url).read
 bundesliga_teams = JSON.parse(bundesliga_teams_serialized)
 

@@ -6,11 +6,14 @@ class MatchesController < ApplicationController
     @laliga_matches = Match.where(league: "La Liga 2017/18").page(params[:page])
     @ligue1_matches = Match.where(league: "Ligue 1 2017/18").page(params[:page])
     @serieA_matches = Match.where(league: "Serie A 2017/18").page(params[:page])
-
   end
 
   def show
     @match = Match.find(params[:id])
-    @odds = @match.odds
+    @odd = Odd.new
+    @all_odds = @match.odds.all.order(:odds)
+    @home_odds = @match.odds.where(outcome: "Home").order(:odds)
+    @away_odds = @match.odds.where(outcome: "Away").order(:odds)
+    @draw_odds = @match.odds.where(outcome: "Draw").order(:odds)
   end
 end
