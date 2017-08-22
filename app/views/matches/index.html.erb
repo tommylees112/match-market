@@ -4,41 +4,62 @@
     <p>earn while you enjoy</p>
     <%= render 'shared/tabs' %>
     <div class="index-card-container">
-      <div class="row fixtures active" id="premiership">
-      <% @premiership_matches.each do |match| %>
-        <div class="col-xs-12 col-sm-6 col-md-4">
-          <%= render 'shared/card', match: match %>
+
+      <div class="fixtures active" id="premiership">
+        <div class="row">
+        <% @premiership_matches.each do |match| %>
+            <div class="col-xs-12 col-sm-6 col-md-4">
+              <%= render 'shared/card', match: match %>
+            </div>
+          <% end %>
         </div>
-        <% end %>
+        <%= paginate @premiership_matches %>
       </div>
-      <div class="row fixtures" id="bundesliga">
-      <% @bundesliga_matches.each do |match| %>
-        <div class="col-xs-12 col-sm-6 col-md-4">
-          <%= render 'shared/card', match: match %>
+
+      <div class="fixtures" id="bundesliga">
+        <div class="row">
+          <% @bundesliga_matches.each do |match| %>
+            <div class="col-xs-12 col-sm-6 col-md-4">
+              <%= render 'shared/card', match: match %>
+            </div>
+          <% end %>
         </div>
-        <% end %>
+        <%= paginate @bundesliga_matches %>
       </div>
-      <div class="row fixtures" id="laliga">
-      <% @laliga_matches.each do |match| %>
-        <div class="col-xs-12 col-sm-6 col-md-4">
-          <%= render 'shared/card', match: match %>
+
+      <div class="fixtures" id="laliga">
+        <div class="row">
+          <% @laliga_matches.each do |match| %>
+              <div class="col-xs-12 col-sm-6 col-md-4">
+                <%= render 'shared/card', match: match %>
+              </div>
+          <% end %>
         </div>
-        <% end %>
+        <%= paginate @laliga_matches %>
       </div>
-      <div class="row fixtures" id="ligue1">
-      <% @ligue1_matches.each do |match| %>
-        <div class="col-xs-12 col-sm-6 col-md-4">
-          <%= render 'shared/card', match: match %>
+
+      <div class="fixtures" id="ligue1">
+        <div class="row">
+          <% @ligue1_matches.each do |match| %>
+            <div class="col-xs-12 col-sm-6 col-md-4">
+              <%= render 'shared/card', match: match %>
+            </div>
+            <% end %>
         </div>
-        <% end %>
+        <%= paginate @ligue1_matches %>
       </div>
-      <div class="row fixtures" id="serieA">
-      <% @serieA_matches.each do |match| %>
-        <div class="col-xs-12 col-sm-6 col-md-4">
-          <%= render 'shared/card', match: match %>
+
+      <div class="fixtures" id="serieA">
+        <div class="row">
+            <% @serieA_matches.each do |match| %>
+            <div class="col-xs-12 col-sm-6 col-md-4">
+              <%= render 'shared/card', match: match %>
+            </div>
+            <% end %>
         </div>
-        <% end %>
+        <%= paginate @serieA_matches %>
       </div>
+
     </div>
   </div>
 </div>
