@@ -25,13 +25,9 @@
     </div>
 
     <div class="card-date">
-      <span><%= match.match_date %></span>
+      <span><%= match.match_date.strftime('%b %e, %l:%M %p') %></span>
     </div>
 
-    <div class="card-stadium">
-      <i class="fa fa-futbol-o fa-2x" aria-hidden="true"></i>
-      <span>Camp Nou</span>
-    </div>
   <p class="status"><%= match.status %></p>
   </div>
 <% end %>
