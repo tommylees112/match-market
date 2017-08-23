@@ -42,7 +42,7 @@ ActiveRecord::Schema.define(version: 20170822182850) do
   create_table "odds", force: :cascade do |t|
     t.integer  "match_id"
     t.integer  "user_id"
-    t.decimal  "odds"
+    t.float    "odds"
     t.string   "outcome"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
