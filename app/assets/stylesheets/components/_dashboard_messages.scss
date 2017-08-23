@@ -9,9 +9,17 @@
   // NOTE: development only
   background-color: white;
 }
-.message:last-child {
-  border-bottom: none;
+
+.message.pending {
+  border: 3px solid $gray;
 }
+.message.win {
+  border: 3px solid $green;
+}
+.message.lose {
+  border: 3px solid $red;
+}
+
 .message-body {
   // flex-grow: 1;
   margin-left: 0;
@@ -35,11 +43,11 @@
 .message-body {
   padding-left: 10px;
   font-size: 13px;
-  color: rgba(0,0,0,0.7);
-}
-.message-body {
   padding-left: 20px;
   color: rgba(0,0,0,0.4);
+}
+.price {
+  font-size: 45px;
 }
 .message-body strong{
   color: rgba(0,0,0,0.9);

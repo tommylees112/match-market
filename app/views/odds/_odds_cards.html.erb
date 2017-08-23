@@ -1,6 +1,5 @@
 <div class="odds-container">
   <div class="oddscard">
-    <div class="card-category">Personal</div>
       <div class="card-description">
         <h2><%= odd.odds %></h2>
         <p><%= odd.outcome %></p>
@@ -11,12 +10,11 @@
 
     </div>
     <a class="card-link" href="#" ></a>
-  <button type="button" class="btn btn-primary btn-lg betmaker" data-toggle="modal" data-target="#makeBet">Make Bet</button>
+  <button type="button" class="btn btn-primary btn-lg betmaker" data-toggle="modal" data-target="#makeBet<%= normal_id ? odd.id : "#{odd.id}id" %>">Make Bet</button>
   </div>
-  <div class="modal-button">
-    <%= render 'shared/odd_modal', odd_selected: odd %>
-  </div>
+  <%= render 'shared/odd_modal', odd_selected: odd, normal_id: normal_id %>
 </div>
+
 
 
 
