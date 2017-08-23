@@ -5,4 +5,6 @@ class BookingsController < ApplicationController
     @booking.save
     redirect_to dashboard_path
   end
+
+
 end
