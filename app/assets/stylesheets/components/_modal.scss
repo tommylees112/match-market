@@ -1,8 +1,12 @@
+.modal-dialog {
+  vertical-align: middle;
+}
+
+
 #makeOdd {
   text-align: center;
 
 }
-
 
 #makeBet {
   h4 {
@@ -15,4 +19,8 @@
   .modal-header {
     padding: 10px;
   }
+  #booking_stake {
+    width: 150px;
+  }
+
 }
