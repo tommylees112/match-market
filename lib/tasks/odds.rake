@@ -1,9 +1,9 @@
 namespace :odds do
   task seed: :environment do
     OUTCOME = ["Home", "Away", "Draw"]
-    tommy = User.find(1) #_by_email("thomas.lees@chch.ox.ac.uk")
-    hamish = User.find(1) #_by_email("hachall@hotmail.com")
-    adrian = User.find(1) #_by_email("")
+    tommy = User.find_by_email("thomas.lees@chch.ox.ac.uk")
+    hamish = User.find_by_email("hachall@hotmail.com")
+    adrian = User.find_by_email("walkerrrrrrr@gmail.com")
     USER = [tommy, hamish, adrian]
 
     def generate_odd_params(odd)
