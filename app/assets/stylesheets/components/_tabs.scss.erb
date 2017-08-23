@@ -1,0 +1,61 @@
+.tabs {
+  display: flex;
+  padding: 4px 4px 0 4px;
+  height: 100px;
+  margin-top: 20px;
+  background-color:white;
+  color: $dark-blue;
+  justify-content: space-between;
+  transition: 0.4s;
+  border-radius: 10px;
+}
+.tabs a {
+
+  color: $dark-blue;
+  font-weight:bold;
+}
+.tabs a:hover {
+  transform: scale(1.1);
+  background-color: $green;
+  cursor: pointer;
+  text-decoration: none;
+  opacity: 0.8
+}
+.tabs h3 {
+  font-size: 17px;
+  font-weight: bold;
+  margin: 0;
+}
+.tabs p {
+  opacity: 0.5;
+  margin-bottom: 0;
+}
+.fixture_tab {
+  background-color:transparent;
+  flex: 0 0 20%;
+  text-align: center;
+  padding: 20px 0;
+
+
+  img {
+    height: 75px;
+  }
+}
+.fixture_tab:first-child {
+  border-radius: 10px 0 0 10px;
+}
+.fixture_tab:last-child {
+  border-radius: 0 10px 10px 0;
+}
+.fixture_tab.active {
+
+  color: black;
+}
+
+
+.tabs-img {
+  width: 100%;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+}
