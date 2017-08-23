@@ -11,6 +11,7 @@ class MatchesController < ApplicationController
   def show
     @match = Match.find(params[:id])
     @odd = Odd.new
+    @booking = Booking.new
     @all_odds = @match.odds.all.order(:odds)
     @home_odds = @match.odds.where(outcome: "Home").order(:odds)
     @away_odds = @match.odds.where(outcome: "Away").order(:odds)
