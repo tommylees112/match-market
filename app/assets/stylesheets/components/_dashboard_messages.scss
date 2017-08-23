@@ -1,0 +1,86 @@
+.message {
+  display: flex;
+  position: relative;
+  align-items: center;
+  padding: 20px;
+  border: 1px solid rgba(220,224,244,0.4);
+  justify-content: space-between;
+  margin: 10px;
+  // NOTE: development only
+  background-color: white;
+}
+.message:last-child {
+  border-bottom: none;
+}
+.message-body {
+  // flex-grow: 1;
+  margin-left: 0;
+  padding-left: 0;
+  margin:0;
+}
+.message-name {
+  padding-left: 10px;
+  min-width: 100px;
+}
+.message-name h3 {
+  font-size: 13px;
+  margin-bottom: 0px;
+}
+.message-name p {
+  font-size: 13px;
+  font-weight: lighter;
+  opacity: 0.6;
+  margin-top: 5px;
+}
+.message-body {
+  padding-left: 10px;
+  font-size: 13px;
+  color: rgba(0,0,0,0.7);
+}
+.message-body {
+  padding-left: 20px;
+  color: rgba(0,0,0,0.4);
+}
+.message-body strong{
+  color: rgba(0,0,0,0.9);
+  color: rgba(0,0,0,0.9);
+}
+.message-body span {
+  margin: 6px 0;
+  font-size: 20;
+}
+.message-status {
+  font-size: 14px;
+  font-weight: bold;
+  padding-right: 35px;
+}
+.status.accepted {
+  color: $green;
+}
+.status.declined {
+  color: $red;
+}
+.status.pending {
+  color: lightgrey;
+}
+.avatar {
+  border-radius: 100%;
+  height: 40px;
+  width: 40px;
+}
+.team-avatar {
+  height: 40px;
+  width: 40px;
+  margin-right: 10px;
+}
+.team {
+  margin: 3px;
+}
+.creator-avatar {
+  height: 30px;
+  width: 30px;
+  border-radius: 100%;
+  position: absolute;
+  top: 5px;
+  right: 5px;
+}

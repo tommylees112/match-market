@@ -1,4 +1,6 @@
 class MatchesController < ApplicationController
+  skip_before_action :authenticate_user!
+
   def index
     @matches = Match.all
     @premiership_matches = Match.where(league: "Premier League 2017/18").page(params[:page])

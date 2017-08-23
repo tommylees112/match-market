@@ -1,20 +1,27 @@
 <div id="makeBet" class="modal fade" role="dialog">
-  <div class="modal-dialog">
+  <div class="modal-dialog modal-sm">
 
     <!-- Modal content-->
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal">&times;</button>
-        <h4 class="modal-title">Make this Bet: <%= odd_selected.outcome.capitalize %></h4>
+        <h4 class="modal-title">Make this Bet:</h4>
         <h4><%= @match.home_team %> v. <%= @match.away_team %></h4>
+        <h3><%= odd_selected.outcome.capitalize %></h3>
       </div>
       <div class="modal-body">
         <%= simple_form_for [@match, odd_selected, @booking] do |f| %>
-          <%= f.input :stake %>
-          <%= f.submit %>
+          <%= f.label 'Stake:' %>
+          <%= f.input :stake, label: false, input_html: { min: '0', step: 'any' }  do %>
+          <%= content_tag :span, "£", class: "add-on" %>
+          <%= f.number_field :stake %>
+          <%= f.submit 'Make Bet', input_html: { class: "align-right" } %>
+          <% end %>
         <% end %>
       </div>
     </div>
 
   </div>
 </div>
+
+

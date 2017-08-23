@@ -12,10 +12,12 @@ end
 
 def generate_odd_params(odd)
   odd.user = User.find(1)
-  odds_number = (1.1..2.0)
+  odds_number = rand(1.1..2.0).round(2)
   odd.odds = odds_number
   odd.save
 end
+
+###### CONSOLE METHOD
 
 Match.all.each do |match|
   OUTCOME.each do |outcome|

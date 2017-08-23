@@ -1,18 +1,59 @@
-<div class="dashboard-grid">
-  <div class="user-info">
-      <div class="container">
-          <h2>User Info</h2>
-          <%= image_tag @user.facebook_picture_url ? @user.facebook_picture_url : "https://api.adorable.io/avatars/285/#{current_user.email}.png", class: "dashboard-avatar" %>
+x<div class="dashboard-grid">
+  <div class="user-info-grid">
+        <div class="user-info text-center">
+            <%= image_tag @user.facebook_picture_url ? @user.facebook_picture_url : "https://api.adorable.io/avatars/285/#{current_user.email}.png", class: "dashboard-avatar" %>
+            <p><%= @user.email %></p>
+            <p><em>Member Since: </em><span><%= @user.created_at.strftime('%B %Y') %></span></p>
+          <table class="key-stats table table-bordered">
+            <tr>
+              <td class= "data">
+                <h3><%= @created_odds.count %></h3>
+                <p>created</p>
+              </td>
+              <td class= "data">
+                <h3><%= @user_bookings.count %></h3>
+                <p>bought</p>
+              </td>
+            </tr>
+            <tr>
+              <td class= "data">
+                <h3>£ <%# #@user.calculate_winnings %></h3>
+                <p>won</p>
+              </td>
+              <td class= "data">
+                <h3>£2</h3>
+                <p>profit</p>
+              </td>
+            </tr>
+          </table>
       </div>
   </div>
-  <div class="user-sold">
-      <div class="container">
-            <h2>Sold</h2>
-      </div>
+  <div class="user-sold-grid">
+      <h2>Bought</h2>
+      <%  @user_bookings.each do |booking|%>
+        <%= render 'shared/dashboard_messages', booking: booking %>
+      <% end %>
   </div>
-  <div class="user-bought">
-      <div class="container">
-            <h2>Bought</h2>
-      </div>
+  <div class="user-bought-grid">
+      <h2>Sold</h2>
   </div>
 </div>
+
+<!-- <div class="container">
+  <div class="row">
+      <div class="col-xs-12 col-sm-6">
+          <p>created</p>
+      </div>
+      <div class="col-xs-12 col-sm-6">
+          <p>bought</p>
+      </div>
+  </div>
+    <div class="row">
+      <div class="col-xs-12 col-sm-6">
+          <p>won</p>
+      </div>
+      <div class="col-xs-12 col-sm-6">
+          <p>profit</p>
+      </div>
+  </div>
+</div> -->
