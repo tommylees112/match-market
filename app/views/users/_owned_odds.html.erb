@@ -1,0 +1,33 @@
+<div class="message">
+  <div class="message-body">
+    <div class="team home-team">
+      <%= image_tag odd.match.home_logo, class:"team-avatar" %>
+      <span><%= odd.match.home_team %></span>
+    </div>
+    <div class="team away-team">
+      <%= image_tag odd.match.away_logo, class:"team-avatar" %>
+      <span><%= odd.match.away_team %></span>
+    </div>
+  </div>
+
+  <div class="message-body">
+      <p>odds</p>
+      <span class="price"><%= odd.odds %></span>
+  </div>
+
+  <div class="message-body">
+      <p>buyers</p>
+      <i class="price fa fa-users" aria-hidden="true"></i>
+      <span class="price text-center"><%= odd.max_people %></p>
+  </div>
+
+  <div class="message-status">
+    <div class="message-date text-center status pending">
+      <% date = odd.match.match_date %>
+      <p class="date"><%= date.strftime('%b %e') %></p>
+      <p class="date"><%= date.strftime('%l:%M %p') %></p>
+    </div>
+  </div>
+
+  <%= image_tag odd.user.facebook_picture_url ? @user.facebook_picture_url : "https://api.adorable.io/avatars/285/#{odd.user.email}.png", class: "creator-avatar" %>
+</div>

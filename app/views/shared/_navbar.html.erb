@@ -10,7 +10,7 @@
     <% if user_signed_in? %>
 
       <!-- Links when logged in -->
-      <%= link_to "#", class: "navbar-wagon-item navbar-wagon-link" do %>
+      <%= link_to root_path, class: "navbar-wagon-item navbar-wagon-link" do %>
         <span>Home</span>
       <% end %>
       <%= link_to "Profile", dashboard_path, class: "navbar-wagon-item navbar-wagon-link" %>

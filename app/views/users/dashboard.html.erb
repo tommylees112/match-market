@@ -17,11 +17,11 @@
             </tr>
             <tr>
               <td class= "data">
-                <h3>£ <%# #@user.calculate_winnings %></h3>
+                <h3>£ <%= @user.calculate_winnings ? @user.calculate_winnings : 0 %></h3>
                 <p>won</p>
               </td>
               <td class= "data">
-                <h3>£2</h3>
+                <h3>£ <%= @user.calculate_winnings ? @user.calculate_winnings : 0 %></h3>
                 <p>profit</p>
               </td>
             </tr>
@@ -36,6 +36,9 @@
   </div>
   <div class="user-bought-grid">
       <h2>Sold</h2>
+      <%  @created_odds.each do |odd|%>
+        <%= render 'users/owned_odds', odd: odd %>
+      <% end %>
   </div>
 </div>
 
