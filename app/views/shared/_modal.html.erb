@@ -10,14 +10,17 @@
       </div>
       <div class="modal-body">
         <%= simple_form_for [@match, @odd] do |f| %>
-          <%= f.input :outcome, collection: ["Home", "Away", "Draw"] %>
+          <%= f.label :odd_outcome, '<abbr title="required">*</abbr> Outcome'.html_safe %>
+
+          <%= f.input :outcome, collection: Odd::VALUES, as: :radio_buttons, label: false, item_label_class: "radio-inline", item_wrapper_tag: false %>
           <%= f.input :odds %>
+          <%= f.input :max_people, collection: 0..10, prompt: "Select the number of people who can buy this bet", selected: 1%>
           <%= f.submit %>
         <% end %>
       </div>
-      <div class="modal-footer">
+      <!-- <div class="modal-footer">
         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-      </div>
+      </div> -->
     </div>
 
   </div>
