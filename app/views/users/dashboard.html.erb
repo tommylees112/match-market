@@ -11,7 +11,7 @@
                 <p>created</p>
               </td>
               <td class= "data">
-                <h3>12</h3>
+                <h3><%= @user_bookings.count %></h3>
                 <p>bought</p>
               </td>
             </tr>
@@ -29,10 +29,13 @@
       </div>
   </div>
   <div class="user-sold-grid">
-      <h2>Sold</h2>
+      <h2>Bought</h2>
+      <%  @user_bookings.each do |booking|%>
+        <%= render 'shared/dashboard_messages', booking: booking %>
+      <% end %>
   </div>
   <div class="user-bought-grid">
-      <h2>Bought</h2>
+      <h2>Sold</h2>
   </div>
 </div>
 
