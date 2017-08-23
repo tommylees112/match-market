@@ -7,7 +7,7 @@
           <div class="row">
             <% @all_odds.each do |odd| %>
               <div class="col-xs-6 col-sm-4">
-                <%= render "odds/odds_cards", odd: odd %>
+                <%= render "odds/odds_cards", odd: odd, normal_id: false %>
               </div>
             <% end %>
           </div>
@@ -16,7 +16,7 @@
           <div class="row">
             <% @home_odds.each do |odd| %>
               <div class="col-xs-6 col-sm-4">
-                <%= render "odds/odds_cards", odd: odd %>
+                <%= render "odds/odds_cards", odd: odd, normal_id: true %>
               </div>
             <% end %>
           </div>
@@ -25,7 +25,7 @@
           <div class="row">
             <% @away_odds.each do |odd| %>
               <div class="col-xs-6 col-sm-4">
-                <%= render "odds/odds_cards", odd: odd %>
+                <%= render "odds/odds_cards", odd: odd, normal_id: true %>
               </div>
             <% end %>
           </div>
@@ -34,12 +34,14 @@
           <div class="row">
             <% @draw_odds.each do |odd| %>
               <div class="col-xs-6 col-sm-4">
-                <%= render "odds/odds_cards", odd: odd %>
+                <%= render "odds/odds_cards", odd: odd, normal_id: true %>
               </div>
             <% end %>
           </div>
       </div>
 
-      <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#makeOdd">Make Odd</button>
+      <div class="flex-center" style="width: 100%">
+        <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#makeOdd">Make Odd</button>
+      </div>
       <%= render 'shared/modal' %>
 </div>

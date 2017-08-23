@@ -13,3 +13,15 @@
 @import "layouts/index";
 @import "components/index";
 @import "pages/index";
+
+
+// Overrides
+.container {
+  padding: 0
+}
+
+.flex-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
