@@ -14,8 +14,8 @@ class OddsController < ApplicationController
   end
 
   private
-  def odd_params
-    params.require(:odd).permit(:odds, :outcome)
-  end
 
+  def odd_params
+    params.require(:odd).permit(:odds, :outcome, :max_people)
+  end
 end

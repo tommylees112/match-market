@@ -2,17 +2,31 @@
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   grid-template-rows: 50% 50%;
-  margin: 0;
+  margin: 10px;
 }
-.user-info {
+.user-info-grid {
   grid-column: 3/span 1;
   grid-row: 1/span 2;
+  background-color: #001D2E;
+  border-radius: 5px;
+  .user-info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+  img {
+    border-radius: 100%;
+    width: 100px;
+    height: 100px;
+    padding: 5px;
+  }
 }
-.user-sold {
+.user-sold-grid {
   grid-column: 1/span 2;
   grid-row: 1/span 1;
 }
-.user-bought {
+.user-bought-grid {
   grid-column: 1/span 2;
   grid-row: 2/span 1;
 }
