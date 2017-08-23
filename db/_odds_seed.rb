@@ -17,7 +17,7 @@ def generate_odd_params(odd)
   odd.save
 end
 
-# CONSOLE
+###### CONSOLE METHOD
 
 Match.all.each do |match|
   OUTCOME.each do |outcome|

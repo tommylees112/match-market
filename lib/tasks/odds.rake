@@ -1,9 +1,13 @@
 namespace :odds do
   task seed: :environment do
     OUTCOME = ["Home", "Away", "Draw"]
+    tommy = User.find(1) #_by_email("thomas.lees@chch.ox.ac.uk")
+    hamish = User.find(1) #_by_email("hachall@hotmail.com")
+    adrian = User.find(1) #_by_email("")
+    USER = [tommy, hamish, adrian]
 
     def generate_odd_params(odd)
-      odd.user = User.find(1)
+      odd.user = USER.sample
       odds_number = rand(1.1..2.0).round(2)
       odd.odds = odds_number
       odd.save!

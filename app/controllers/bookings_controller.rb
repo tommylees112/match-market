@@ -6,9 +6,9 @@ class BookingsController < ApplicationController
     @booking.save
     redirect_to dashboard_path
   end
-
+  
   private
-
+  
   def booking_params
     params.require(:booking).permit(:stake)
   end
