@@ -1,11 +1,23 @@
-<div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('');">
-  <div class="card-category">Personal</div>
-  <div class="card-description">
-    <h2><%= odd.odds %></h2>
-    <p><%= odd.outcome %></p>
+<div class="odds-container">
+  <div class="oddscard">
+    <div class="card-category">Personal</div>
+      <div class="card-description">
+        <h2><%= odd.odds %></h2>
+        <p><%= odd.outcome %></p>
+    </div>
+    <% card_avatar_url =  odd.user.facebook_picture_url || "https://api.adorable.io/avatars/285/#{current_user.email}.png" %>
+
+    <div style="background-image: url(<%= image_path card_avatar_url %>);" class="card-avatar">
+
+    </div>
+    <a class="card-link" href="#" ></a>
+  <button type="button" class="btn btn-primary btn-lg betmaker" data-toggle="modal" data-target="#makeBet">Make Bet</button>
   </div>
-  <img class="card-user" src="<%= "https://api.adorable.io/avatars/285/#{current_user.email}.png" %>">
-  <a class="card-link" href="#" ></a>
-<button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#makeBet">Make Bet</button>
+  <%= render 'shared/odd_modal', odd_selected: odd %>
 </div>
-<%= render 'shared/odd_modal', odd_selected: odd %>
+
+
+
+
+
+
