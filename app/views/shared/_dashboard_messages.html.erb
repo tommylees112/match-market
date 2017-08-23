@@ -1,4 +1,5 @@
-<div class="message">
+<% if booking.won %>
+<div class="message win">
   <div class="message-body">
     <div class="team home-team">
       <%= image_tag booking.odd.match.home_logo, class:"team-avatar" %>
@@ -11,7 +12,8 @@
   </div>
 
   <div class="message-body">
-      <span>£</span><h3 class="price"><%= booking.stake %></h3>
+      <span>£</span><span class="price"><%= booking.stake %></span>
+      <p>on <%= booking.odd.outcome %></p>
   </div>
 
   <div class="message-status">
@@ -24,3 +26,62 @@
 
   <%= image_tag booking.odd.user.facebook_picture_url ? @user.facebook_picture_url : "https://api.adorable.io/avatars/285/#{booking.odd.user.email}.png", class: "creator-avatar" %>
 </div>
+
+<% elsif booking.won == false %>
+<div class="message lose">
+  <div class="message-body">
+    <div class="team home-team">
+      <%= image_tag booking.odd.match.home_logo, class:"team-avatar" %>
+      <span><%= booking.odd.match.home_team %></span>
+    </div>
+    <div class="team away-team">
+      <%= image_tag booking.odd.match.away_logo, class:"team-avatar" %>
+      <span><%= booking.odd.match.away_team %></span>
+    </div>
+  </div>
+
+  <div class="message-body">
+      <span>£</span><span class="price"><%= booking.stake %></span>
+      <p>on <%= booking.odd.outcome %></p>
+  </div>
+
+  <div class="message-status">
+    <div class="message-date text-center status pending">
+      <% date = booking.odd.match.match_date %>
+      <p class="date"><%= date.strftime('%b %e') %></p>
+      <p class="date"><%= date.strftime('%l:%M %p') %></p>
+    </div>
+  </div>
+
+  <%= image_tag booking.odd.user.facebook_picture_url ? @user.facebook_picture_url : "https://api.adorable.io/avatars/285/#{booking.odd.user.email}.png", class: "creator-avatar" %>
+</div>
+
+<% else %>
+<div class="message pending">
+  <div class="message-body">
+    <div class="team home-team">
+      <%= image_tag booking.odd.match.home_logo, class:"team-avatar" %>
+      <span><%= booking.odd.match.home_team %></span>
+    </div>
+    <div class="team away-team">
+      <%= image_tag booking.odd.match.away_logo, class:"team-avatar" %>
+      <span><%= booking.odd.match.away_team %></span>
+    </div>
+  </div>
+
+  <div class="message-body">
+      <span>£</span><span class="price"><%= booking.stake %></span>
+      <p>on <%= booking.odd.outcome %></p>
+  </div>
+
+  <div class="message-status">
+    <div class="message-date text-center status pending">
+      <% date = booking.odd.match.match_date %>
+      <p class="date"><%= date.strftime('%b %e') %></p>
+      <p class="date"><%= date.strftime('%l:%M %p') %></p>
+    </div>
+  </div>
+
+  <%= image_tag booking.odd.user.facebook_picture_url ? @user.facebook_picture_url : "https://api.adorable.io/avatars/285/#{booking.odd.user.email}.png", class: "creator-avatar" %>
+</div>
+<% end %>
