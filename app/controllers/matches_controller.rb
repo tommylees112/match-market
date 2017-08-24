@@ -2,13 +2,27 @@ class MatchesController < ApplicationController
   skip_before_action :authenticate_user!
 
   def index
-    @matches = Match.all
+
+
+   if params[:search].present?
+    # @matches = Match.where('home_team LIKE ? OR away_team LIKE ?, "%#{params[:search].downcase}%", "%#{params[:search].downcase}%"')
+    @premiership_matches = Match.where('lower(home_team) LIKE ? or lower(away_team) LIKE ?', "%#{params[:search].downcase}%", "%#{params[:search].downcase}%").order(:match_date)
+    @bundesliga_matches = Match.where('lower(home_team) LIKE ? or lower(away_team) LIKE ?', "%#{params[:search].downcase}%", "%#{params[:search].downcase}%").order(:match_date)
+    @laliga_matches = Match.where('lower(home_team) LIKE ? or lower(away_team) LIKE ?', "%#{params[:search].downcase}%", "%#{params[:search].downcase}%").order(:match_date)
+    @ligue1_matches = Match.where('lower(home_team) LIKE ? or lower(away_team) LIKE ?', "%#{params[:search].downcase}%", "%#{params[:search].downcase}%").order(:match_date)
+    @serieA_matches = Match.where('lower(home_team) LIKE ? or lower(away_team) LIKE ?', "%#{params[:search].downcase}%", "%#{params[:search].downcase}%").order(:match_date)
+    else
     @premiership_matches = Match.where(league: "Premier League 2017/18").order(:match_date)
     @bundesliga_matches = Match.where(league: "Bundesliga 2017/18").order(:match_date)
     @laliga_matches = Match.where(league: "La Liga 2017/18").order(:match_date)
     @ligue1_matches = Match.where(league: "Ligue 1 2017/18").order(:match_date)
     @serieA_matches = Match.where(league: "Serie A 2017/18").order(:match_date)
+   end
+
+
   end
+
+
 
   def show
     @match = Match.find(params[:id])

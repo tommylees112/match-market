@@ -1,15 +1,16 @@
+// WHOLE BOX
 .message {
   display: flex;
   position: relative;
   align-items: center;
-  padding: 20px;
+  padding: 0;
   border: 1px solid rgba(220,224,244,0.4);
+  border-radius: 4px;
   justify-content: space-between;
   margin: 10px;
   // NOTE: development only
   background-color: white;
 }
-
 .message.pending {
   border: 3px solid $gray;
 }
@@ -20,31 +21,25 @@
   border: 3px solid $red;
 }
 
+// TEAMS
 .message-body {
   // flex-grow: 1;
   margin-left: 0;
   padding-left: 0;
   margin:0;
-}
-.message-name {
-  padding-left: 10px;
-  min-width: 100px;
-}
-.message-name h3 {
   font-size: 13px;
-  margin-bottom: 0px;
-}
-.message-name p {
-  font-size: 13px;
-  font-weight: lighter;
-  opacity: 0.6;
-  margin-top: 5px;
-}
-.message-body {
-  padding-left: 10px;
-  font-size: 13px;
-  padding-left: 20px;
   color: rgba(0,0,0,0.4);
+  &.cards-team {
+    min-width: 230px;
+  }
+}
+.team-avatar {
+  height: 40px;
+  width: 40px;
+  margin-right: 10px;
+}
+.team {
+  margin: 3px;
 }
 .price {
   font-size: 45px;
@@ -68,27 +63,51 @@
 .status.declined {
   color: $red;
 }
-.status.pending {
-  color: lightgrey;
-}
-.avatar {
-  border-radius: 100%;
-  height: 40px;
-  width: 40px;
-}
-.team-avatar {
-  height: 40px;
-  width: 40px;
-  margin-right: 10px;
-}
-.team {
-  margin: 3px;
-}
-.creator-avatar {
-  height: 50px;
-  width: 50px;
-  border-radius: 50%;
-  position: absolute;
-  top: 5px;
-  right: 5px;
+
+
+// CREATOR CONTAINER
+.avatar-container {
+  position: relative;
+  .creator-avatar {
+    height: 40px;
+    width: 40px;
+    border-radius: 100%;
+    margin-right: 20px;
+  };
+  .hover-box {
+    margin:0;
+    visibility: hidden;
+    background-color: #001521;
+    opacity: 0.85;
+    color: #fff;
+    padding: 0;
+    margin: 0;
+    border-radius: 6px;
+    position: absolute;
+    top:-75px;
+    right: 8px;
+    width: 60px;
+    font-size: 14px;
+    h6 {
+      margin-bottom: 3px;
+    };
+    p {
+      margin:0;
+      padding:0;
+      padding-left: 3px;
+    }
+    .title {
+      font-style: italic;
+    }
+    .won {
+      color: $green;
+    };
+    .lost {
+      color: $red;
+    };
+  }
+  &:hover .hover-box {
+    visibility:visible;
+    z-index:1;
+  };
 }

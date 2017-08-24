@@ -1,3 +1,8 @@
+a:hover {
+  text-decoration:none;
+}
+
+
 
 .card {
   height: 300px;
@@ -16,14 +21,15 @@
   box-shadow: 3px 4px 18px 1px rgba(0,0,0,0.45);
   margin-bottom: 15px;
   margin-top: 20px;
+  opacity: 0.9;
  &:hover {
-    opacity: 0.7;
+    opacity: 1.2;
     transform: scale(1.1);
     text-decoration: none;
     cursor: pointer;
-    a {
-      text-decoration: none;
-    }
+
+    border: 1px solid $green;
+
   }
   .card-teams {
     display: flex;
@@ -39,6 +45,9 @@
       align-items:center;
       height:55px;
       justify-content: center;
+      &:hover {
+        text-decoration: none;
+      }
     }
 
     .team-logo {
