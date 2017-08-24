@@ -21,7 +21,11 @@ gem 'uglifier'
 gem 'kaminari'
 gem 'omniauth-facebook'
 
+gem "letter_opener", group: :development
+
+
 group :development, :test do
+
   gem 'pry-byebug'
   gem 'pry-rails'
   gem 'web-console', '>= 3.3.0'
