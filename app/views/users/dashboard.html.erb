@@ -3,7 +3,7 @@
         <div class="user-info text-center">
 
 
-
+        <% content_for :title, "#{@user.first_name} - Dashboard"   %>
 
         <% dashboard_avatar_url = @user.facebook_picture_url ? @user.facebook_picture_url : "https://api.adorable.io/avatars/285/#{current_user.email}.png" %>
 
