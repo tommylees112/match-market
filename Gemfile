@@ -24,6 +24,9 @@ gem 'omniauth-facebook'
 gem "letter_opener", group: :development
 
 
+gem "geocoder"
+
+
 group :development, :test do
 
   gem 'pry-byebug'
