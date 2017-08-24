@@ -1,0 +1,29 @@
+<div class="user-info text-center">
+    <% dashboard_avatar_url = @user.facebook_picture_url ? @user.facebook_picture_url : "https://api.adorable.io/avatars/285/#{current_user.email}.png" %>
+    <div class="dashboard-avatar" style="background-image: url(<%= image_path dashboard_avatar_url %>);">
+    </div>
+    <p><%= @user.email %></p>
+    <p><em>Member Since: </em><span><%= @user.created_at.strftime('%B %Y') %></span></p>
+    <table class="key-stats table table-bordered">
+        <tr>
+            <td class= "data">
+              <h3><%= @created_odds.count %></h3>
+              <p>created</p>
+            </td>
+            <td class= "data">
+              <h3><%= @user_bookings.count %></h3>
+              <p>bought</p>
+            </td>
+        </tr>
+        <tr>
+            <td class= "data">
+              <h3>£ <%= @user.calculate_winnings ? @user.calculate_winnings : 0 %></h3>
+              <p>won</p>
+            </td>
+            <td class= "data">
+              <h3>£ <%= @user.calculate_total_profit ? @user.calculate_total_profit : 0 %></h3>
+              <p>profit</p>
+            </td>
+        </tr>
+    </table>
+</div>
