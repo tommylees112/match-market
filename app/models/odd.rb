@@ -37,4 +37,21 @@ class Odd < ApplicationRecord
   def number_of_current_bookings
     self.bookings.count
   end
+
+  def current_exposure
+    exposure = 0
+    # GET THE USER CREATED ODDS AND THERE ASSOCIATED BOOKINGS
+      self.bookings.each do |booking|
+        exposure += (booking.stake * odd.odds) - booking.stake
+      end
+    return exposure
+  end
+
+  def possible_winnings
+    result = 0
+      self.bookings.each do |booking|
+        result += booking.stake
+      end
+    return result
+  end
 end
