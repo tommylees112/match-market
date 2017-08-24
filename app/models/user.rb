@@ -41,7 +41,7 @@ class User < ApplicationRecord
         end
       end
     end
-    return result.
+    return result.round(2)
   end
 
   def calculate_live_money
