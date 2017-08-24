@@ -8,16 +8,18 @@
 
     <p>make your own luck</p>
 
-
-
-  <%= form_tag(matches_path, method: 'get', class:"new_form") do %>
+</div>
+<div class="test1">
+  <!-- <div class="search_form"> -->
+  <%= form_tag(matches_path, method: 'get', class:"new_form form-inline") do %>
       <%= text_field_tag(:search, params[:search]) %>
-      <%= submit_tag("Search", name: nil, class:"btn btn-primary") %>
+      <%= submit_tag("Search", name: nil, class:"btn btn-primary searchbtn") %>
   <% end %>
+</div>
+  <!-- </div> -->
 
 
 
-  </div>
 </div>
     <%= render 'shared/tabs' %>
     <hr>
