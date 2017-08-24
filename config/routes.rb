@@ -11,4 +11,5 @@ Rails.application.routes.draw do
   end
 
   get "/dashboard", to: "users#dashboard"
+  get "/about", to: "pages#index"
 end
