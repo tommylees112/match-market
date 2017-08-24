@@ -5,23 +5,39 @@
 
     <p>make your own luck</p>
   </div>
+
+
 </div>
     <%= render 'shared/tabs' %>
-    <hr>
     <div class="index-card-container">
 
       <div class="fixtures active" id="premiership">
-        <div class="row">
-        <% @premiership_matches.each do |match| %>
-            <div class="col-xs-12 col-sm-6 col-md-4">
-              <%= render 'shared/card', match: match %>
-            </div>
-          <% end %>
+    <%= render 'shared/week_toggle' %>
+
+        <div id="game_week1" class="gameweek_fixtures active">
+          <div class="row">
+          <% @premiership_matches.select{|filter_match| filter_match.gameweek == 1}.each do |match| %>
+              <div class="col-xs-12 col-sm-6 col-md-4">
+                <%= render 'shared/card', match: match %>
+              </div>
+            <% end %>
+          </div>
         </div>
-        <%= paginate @premiership_matches %>
+        <% for game_week in (2..38).to_a %>
+          <div id=<%= "game_week#{game_week}" %> class="gameweek_fixtures">
+            <div class="row">
+            <% @premiership_matches.select{|filter_match| filter_match.gameweek == game_week}.each do |match| %>
+                <div class="col-xs-12 col-sm-6 col-md-4">
+                  <%= render 'shared/card', match: match %>
+                </div>
+              <% end %>
+            </div>
+          </div>
+        <% end %>
       </div>
 
       <div class="fixtures" id="bundesliga">
+        <%= paginate @bundesliga_matches %>
         <div class="row">
           <% @bundesliga_matches.each do |match| %>
             <div class="col-xs-12 col-sm-6 col-md-4">
@@ -29,10 +45,10 @@
             </div>
           <% end %>
         </div>
-        <%= paginate @bundesliga_matches %>
       </div>
 
       <div class="fixtures" id="laliga">
+        <%= paginate @laliga_matches %>
         <div class="row">
           <% @laliga_matches.each do |match| %>
               <div class="col-xs-12 col-sm-6 col-md-4">
@@ -40,10 +56,10 @@
               </div>
           <% end %>
         </div>
-        <%= paginate @laliga_matches %>
       </div>
 
       <div class="fixtures" id="ligue1">
+        <%= paginate @ligue1_matches %>
         <div class="row">
           <% @ligue1_matches.each do |match| %>
             <div class="col-xs-12 col-sm-6 col-md-4">
@@ -51,10 +67,10 @@
             </div>
             <% end %>
         </div>
-        <%= paginate @ligue1_matches %>
       </div>
 
       <div class="fixtures" id="serieA">
+        <%= paginate @serieA_matches %>
         <div class="row">
             <% @serieA_matches.each do |match| %>
             <div class="col-xs-12 col-sm-6 col-md-4">
@@ -62,10 +78,9 @@
             </div>
             <% end %>
         </div>
-        <%= paginate @serieA_matches %>
       </div>
 
     </div>
   </div>
 </div>
-<hr>
+
