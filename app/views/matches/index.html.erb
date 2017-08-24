@@ -1,30 +1,18 @@
 <div class="banner">
   <div class="banner-content">
-
     <h1>Be the Bookie</h1>
-
     <p>make your own luck</p>
   </div>
-
-
 </div>
-    <%= render 'shared/tabs' %>
-    <div class="index-card-container">
 
-      <div class="fixtures active" id="premiership">
-    <%= render 'shared/week_toggle' %>
+<%= render 'shared/tabs' %>
+<div class="index-card-container">
 
-        <div id="game_week1" class="gameweek_fixtures active">
-          <div class="row">
-          <% @premiership_matches.select{|filter_match| filter_match.gameweek == 1}.each do |match| %>
-              <div class="col-xs-12 col-sm-6 col-md-4">
-                <%= render 'shared/card', match: match %>
-              </div>
-            <% end %>
-          </div>
-        </div>
-        <% for game_week in (2..38).to_a %>
-          <div id=<%= "game_week#{game_week}" %> class="gameweek_fixtures">
+      <div class="fixtures active" id="premiership" data-target=".premiership">
+        <% for game_week in (1..38).to_a %>
+          <div id=<%= "game_week#{game_week}" %> class="gameweek_fixtures premiership">
+            <% league = @premiership_matches.first.league %>
+            <%= render 'shared/week_toggle', game_week: game_week, league: league %>
             <div class="row">
             <% @premiership_matches.select{|filter_match| filter_match.gameweek == game_week}.each do |match| %>
                 <div class="col-xs-12 col-sm-6 col-md-4">
@@ -36,51 +24,75 @@
         <% end %>
       </div>
 
-      <div class="fixtures" id="bundesliga">
-        <%= paginate @bundesliga_matches %>
-        <div class="row">
-          <% @bundesliga_matches.each do |match| %>
-            <div class="col-xs-12 col-sm-6 col-md-4">
-              <%= render 'shared/card', match: match %>
+
+      <div class="fixtures" id="bundesliga" data-target=".bundesliga">
+        <% for game_week in (1..34).to_a %>
+          <div id=<%= "game_week#{game_week}" %> class="gameweek_fixtures bundesliga">
+        <% league = @bundesliga_matches.first.league %>
+        <%= render 'shared/week_toggle', league: league, game_week: game_week %>
+            <div class="row">
+            <% @bundesliga_matches.select{|filter_match| filter_match.gameweek == game_week}.each do |match| %>
+                <div class="col-xs-12 col-sm-6 col-md-4">
+                  <%= render 'shared/card', match: match %>
+                </div>
+              <% end %>
             </div>
-          <% end %>
-        </div>
+          </div>
+        <% end %>
       </div>
 
-      <div class="fixtures" id="laliga">
-        <%= paginate @laliga_matches %>
-        <div class="row">
-          <% @laliga_matches.each do |match| %>
-              <div class="col-xs-12 col-sm-6 col-md-4">
-                <%= render 'shared/card', match: match %>
-              </div>
-          <% end %>
-        </div>
-      </div>
 
-      <div class="fixtures" id="ligue1">
-        <%= paginate @ligue1_matches %>
-        <div class="row">
-          <% @ligue1_matches.each do |match| %>
-            <div class="col-xs-12 col-sm-6 col-md-4">
-              <%= render 'shared/card', match: match %>
+      <div class="fixtures" id="laliga" data-target=".laliga">
+        <% for game_week in (1..38).to_a %>
+          <div id=<%= "game_week#{game_week}" %> class="gameweek_fixtures laliga">
+        <% league = @laliga_matches.first.league %>
+        <%= render 'shared/week_toggle', league: league, game_week: game_week %>
+            <div class="row">
+            <% @laliga_matches.select{|filter_match| filter_match.gameweek == game_week}.each do |match| %>
+                <div class="col-xs-12 col-sm-6 col-md-4">
+                  <%= render 'shared/card', match: match %>
+                </div>
+              <% end %>
             </div>
-            <% end %>
-        </div>
+          </div>
+        <% end %>
       </div>
 
-      <div class="fixtures" id="serieA">
-        <%= paginate @serieA_matches %>
-        <div class="row">
-            <% @serieA_matches.each do |match| %>
-            <div class="col-xs-12 col-sm-6 col-md-4">
-              <%= render 'shared/card', match: match %>
+      <div class="fixtures" id="ligue1" data-target=".ligue1">
+        <% for game_week in (1..38).to_a %>
+          <div id=<%= "game_week#{game_week}" %> class="gameweek_fixtures ligue1">
+        <% league = @ligue1_matches.first.league %>
+        <%= render 'shared/week_toggle', league: league, game_week: game_week %>
+            <div class="row">
+            <% @ligue1_matches.select{|filter_match| filter_match.gameweek == game_week}.each do |match| %>
+                <div class="col-xs-12 col-sm-6 col-md-4">
+                  <%= render 'shared/card', match: match %>
+                </div>
+              <% end %>
             </div>
-            <% end %>
-        </div>
+          </div>
+        <% end %>
       </div>
 
-    </div>
-  </div>
+      <div class="fixtures" id="serieA" data-target=".serieA">
+        <% for game_week in (1..38).to_a %>
+          <div id=<%= "game_week#{game_week}" %> class="gameweek_fixtures serieA">
+        <% league = @serieA_matches.first.league %>
+        <%= render 'shared/week_toggle', league: league, game_week: game_week %>
+            <div class="row">
+            <% @serieA_matches.select{|filter_match| filter_match.gameweek == game_week}.each do |match| %>
+                <div class="col-xs-12 col-sm-6 col-md-4">
+                  <%= render 'shared/card', match: match %>
+                </div>
+              <% end %>
+            </div>
+          </div>
+        <% end %>
+      </div>
+
+
+
+
+
 </div>
 
