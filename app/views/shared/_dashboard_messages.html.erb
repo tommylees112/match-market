@@ -2,11 +2,11 @@
 <div class="message win">
   <div class="message-body">
     <div class="team home-team">
-      <%= image_tag booking.odd.match.home_logo, class:"team-avatar" %>
+      <%= image_tag booking.odd.match.home_logo ? booking.odd.match.home_logo : "logo.png", class:"team-avatar" %>
       <span><%= booking.odd.match.home_team %></span>
     </div>
     <div class="team away-team">
-      <%= image_tag booking.odd.match.away_logo, class:"team-avatar" %>
+      <%= image_tag booking.odd.match.away_logo ? booking.odd.match.away_logo : "logo.png", class:"team-avatar" %>
       <span><%= booking.odd.match.away_team %></span>
     </div>
   </div>
@@ -24,18 +24,24 @@
     </div>
   </div>
 
-  <%= image_tag booking.odd.user.facebook_picture_url ? @user.facebook_picture_url : "https://api.adorable.io/avatars/285/#{booking.odd.user.email}.png", class: "creator-avatar" %>
+    <div class="avatar-container">
+    <%= image_tag booking.odd.user.facebook_picture_url ? @user.facebook_picture_url : "https://api.adorable.io/avatars/285/#{booking.odd.user.email}.png", class: "creator-avatar" %>
+    <div class="hover-box">
+        <p><span class="title">won:  </span><span class="won"><%= 3 %></span></p>
+        <p><span class="title">lost:  </span><span class="lost"><%= 1 %></span></p>
+    </div>
+  </div>
 </div>
 
 <% elsif booking.won == false %>
 <div class="message lose">
   <div class="message-body">
     <div class="team home-team">
-      <%= image_tag booking.odd.match.home_logo, class:"team-avatar" %>
+      <%= image_tag booking.odd.match.home_logo ? booking.odd.match.home_logo : "logo.png", class:"team-avatar" %>
       <span><%= booking.odd.match.home_team %></span>
     </div>
     <div class="team away-team">
-      <%= image_tag booking.odd.match.away_logo, class:"team-avatar" %>
+      <%= image_tag booking.odd.match.away_logo ? booking.odd.match.away_logo : "logo.png", class:"team-avatar" %>
       <span><%= booking.odd.match.away_team %></span>
     </div>
   </div>
@@ -53,18 +59,24 @@
     </div>
   </div>
 
-  <%= image_tag booking.odd.user.facebook_picture_url ? @user.facebook_picture_url : "https://api.adorable.io/avatars/285/#{booking.odd.user.email}.png", class: "creator-avatar" %>
+  <div class="avatar-container">
+    <%= image_tag booking.odd.user.facebook_picture_url ? @user.facebook_picture_url : "https://api.adorable.io/avatars/285/#{booking.odd.user.email}.png", class: "creator-avatar" %>
+    <div class="hover-box">
+        <p><span class="title">won:  </span><span class="won"><%= 3 %></span></p>
+        <p><span class="title">lost:  </span><span class="lost"><%= 1 %></span></p>
+    </div>
+  </div>
 </div>
 
 <% else %>
 <div class="message pending">
   <div class="message-body">
     <div class="team home-team">
-      <%= image_tag booking.odd.match.home_logo, class:"team-avatar" %>
+      <%= image_tag booking.odd.match.home_logo ? booking.odd.match.home_logo : "logo.png", class:"team-avatar" %>
       <span><%= booking.odd.match.home_team %></span>
     </div>
     <div class="team away-team">
-      <%= image_tag booking.odd.match.away_logo, class:"team-avatar" %>
+      <%= image_tag booking.odd.match.away_logo ? booking.odd.match.away_logo : "logo.png", class:"team-avatar" %>
       <span><%= booking.odd.match.away_team %></span>
     </div>
   </div>
@@ -81,7 +93,13 @@
       <p class="date"><%= date.strftime('%l:%M %p') %></p>
     </div>
   </div>
-  <%= image_tag booking.odd.user.facebook_picture_url ? @user.facebook_picture_url : "https://api.adorable.io/avatars/285/#{booking.odd.user.email}.png", class: "creator-avatar" %>
+  <div class="avatar-container">
+    <%= image_tag booking.odd.user.facebook_picture_url ? @user.facebook_picture_url : "https://api.adorable.io/avatars/285/#{booking.odd.user.email}.png", class: "creator-avatar" %>
+    <div class="hover-box">
+        <p><span class="title">won:  </span><span class="won"><%= 3 %></span></p>
+        <p><span class="title">lost:  </span><span class="lost"><%= 1 %></span></p>
+    </div>
+  </div>
 
 </div>
 <% end %>
