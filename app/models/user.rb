@@ -92,7 +92,7 @@ class User < ApplicationRecord
         # check the match outcome
         true_outcome = created_bet_outcome(odd)
         # compare against our 'wagered' outcome
-        if true_outcome == outcome
+        if true_outcome == odd.outcome
           odd.bookings.each do |booking|
             result -= booking.stake * odd.odds
           end
