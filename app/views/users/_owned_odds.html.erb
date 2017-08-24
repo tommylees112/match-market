@@ -1,11 +1,21 @@
 <div class="message">
   <div class="message-body">
     <div class="team home-team">
-      <%= image_tag odd.match.home_logo, class:"team-avatar" %>
+    <% if odd.match.home_logo? %>
+      <% image_path = odd.match.home_logo %>
+    <% else %>
+      <%= "logo.png" %>
+    <% end %>
+      <%= image_tag image_path, class:"team-avatar" %>
       <span><%= odd.match.home_team %></span>
     </div>
+    <% if odd.match.away_logo? %>
+      <% image_path = odd.match.away_logo %>
+    <% else %>
+      <%= image_path = "logo.png" %>
+    <% end %>
     <div class="team away-team">
-      <%= image_tag odd.match.away_logo, class:"team-avatar" %>
+      <%= image_tag image_path, class:"team-avatar" %>
       <span><%= odd.match.away_team %></span>
     </div>
   </div>
