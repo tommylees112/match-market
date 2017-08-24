@@ -8,4 +8,7 @@ class Odd < ApplicationRecord
   validates :user, presence: true
   validates :odds, presence: true, numericality: true
   validates :outcome, presence: true, inclusion: { in: VALUES }
+
+  def won?
+  end
 end

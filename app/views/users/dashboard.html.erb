@@ -11,7 +11,7 @@
   <div class="user-bought-grid">
       <h2>Sold</h2>
       <%  @created_odds.each do |odd|%>
-        <%= render 'users/owned_odds', odd: odd %>
+        <%= render 'users/owned_odds', odd: odd, bet_outcome: bet.won? %>
       <% end %>
   </div>
 </div>
