@@ -7,6 +7,16 @@
     <h1>Be the Bookie</h1>
 
     <p>make your own luck</p>
+
+
+
+  <%= form_tag(matches_path, method: 'get', class:"new_form") do %>
+      <%= text_field_tag(:search, params[:search]) %>
+      <%= submit_tag("Search", name: nil, class:"btn btn-primary") %>
+  <% end %>
+
+
+
   </div>
 </div>
     <%= render 'shared/tabs' %>
