@@ -1,7 +1,7 @@
 <% content_for :title, "#{@user.first_name} - Odds"   %>
 
-<div class="message">
-  <div class="message-body">
+<div class="message <%= bet_outcome %>">
+  <div class="message-body team">
     <div class="team home-team">
     <% if odd.match.home_logo? %>
       <% image_path = odd.match.home_logo %>
@@ -23,14 +23,17 @@
   </div>
 
   <div class="message-body">
-      <p>odds</p>
       <span class="price"><%= odd.odds %></span>
+      <p>on <%= odd.outcome %></p>
   </div>
 
-  <div class="message-body">
-      <p>buyers</p>
+  <div class="message-body number_users">
       <i class="price fa fa-users" aria-hidden="true"></i>
-      <span class="price text-center"><%= odd.max_people %></p>
+      <span class="price text-center"><%= odd.number_of_current_bookings %>
+    <div class="hover-box">
+        <h6 class="text-center">Max Users</h6>
+        <p><span class="title"></span><span class="won"><%= odd.number_of_current_bookings %></span></p>
+    </div>
   </div>
 
   <div class="message-status">

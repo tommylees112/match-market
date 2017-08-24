@@ -10,5 +10,31 @@ class Odd < ApplicationRecord
   validates :outcome, presence: true, inclusion: { in: VALUES }
 
   def won?
+    if (self.match.status == 'FINISHED')
+    outcome_true = ""
+
+    if self.match.goals_home_team > self.match.goals_away_team
+      outcome_true = "Home"
+     elsif self.match.goals_home_team < self.match.goals_away_team
+       outcome_true = "Away"
+     elsif self.match.goals_home_team == self.match.goals_away_team
+       outcome_true = "Draw"
+     end
+
+    if (self.outcome == outcome_true)
+      bet_outcome = "win"
+    else
+      bet_outcome = "lose"
+    end
+
+   else
+     bet_outcome = "pending"
+   end
+
+   return bet_outcome
+  end
+
+  def number_of_current_bookings
+    self.bookings.count
   end
 end
