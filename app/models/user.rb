@@ -30,6 +30,11 @@ class User < ApplicationRecord
     return user
   end
 
+  def user_name
+    user_name = self.email.match(/^([^@]*)@/)[1]
+    return user_name
+  end
+
   ## METHODS FOR BOUGHT ODDS (that the user has bet on)
 
   def calculate_winnings
