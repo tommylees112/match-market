@@ -1,13 +1,7 @@
 <div class="dashboard-grid">
   <div class="user-info-grid">
         <div class="user-info text-center">
-
-
-
-
         <% dashboard_avatar_url = @user.facebook_picture_url ? @user.facebook_picture_url : "https://api.adorable.io/avatars/285/#{current_user.email}.png" %>
-
-
           <div class="dashboard-avatar" style="background-image: url(<%= image_path dashboard_avatar_url %>);">
             </div>
             <p><%= @user.email %></p>
