@@ -53,10 +53,7 @@
     </div>
   </div>
 
-
-  <%= dash_msg_avatar = booking.odd.user.facebook_picture_url ? booking.odd.user.facebook_picture_url : "https://api.adorable.io/avatars/285/#{booking.odd.user.email}.png" %>
-  <div class="creator-avatar" style = "background-image: url(<%= image_path dash_msg_avatar %>);">
-  </div>
+  <%= image_tag booking.odd.user.facebook_picture_url ? @user.facebook_picture_url : "https://api.adorable.io/avatars/285/#{booking.odd.user.email}.png", class: "creator-avatar" %>
 </div>
 
 <% else %>
@@ -84,7 +81,7 @@
       <p class="date"><%= date.strftime('%l:%M %p') %></p>
     </div>
   </div>
-
+  <%= image_tag booking.odd.user.facebook_picture_url ? @user.facebook_picture_url : "https://api.adorable.io/avatars/285/#{booking.odd.user.email}.png", class: "creator-avatar" %>
 
 </div>
 <% end %>
