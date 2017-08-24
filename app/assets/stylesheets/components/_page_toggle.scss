@@ -1,0 +1,27 @@
+.fixtures_pager {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 20px 20px 10px 20px;
+}
+
+.gameweek_fixtures {
+  display: none;
+  &.active {
+    display: block;
+  }
+}
+
+.week_button {
+  background-color: $dark-blue;
+  border: none;
+  height: 40px;
+  width: 130px;
+  &#left {
+    text-align: left;
+  }
+  &#right {
+    text-align: right;
+  }
+}
+
