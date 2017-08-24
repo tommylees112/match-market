@@ -8,6 +8,15 @@ class User < ApplicationRecord
   has_many :owned_odds, through: :bookings, source: :odds
   has_many :odds
   has_many :bookings
+  after_create :send_welcome_email
+
+
+
+
+
+
+
+
 
   def self.find_for_facebook_oauth(auth)
     user_params = auth.slice(:provider, :uid)
@@ -33,4 +42,21 @@ class User < ApplicationRecord
   def calculate_winnings
     # return #number
   end
+
+
+
+
+
+
+
+
+
+
+  private
+
+  def send_welcome_email
+    UserMailer.welcome(self).deliver_now
+  end
+
+
 end
