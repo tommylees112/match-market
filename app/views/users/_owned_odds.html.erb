@@ -22,9 +22,15 @@
     </div>
   </div>
 
-  <div class="message-body">
+  <div class="message-body text-center exposure">
       <span class="price"><%= odd.odds %></span>
       <p>on <%= odd.outcome %></p>
+    <div class="hover-box">
+        <h6 class="text-center">Bookings</h6>
+        <p><span class="title">Exposure: </span><span class="lost">£ <%= odd.number_of_current_bookings %></span></p>
+        <p><span class="title">Potential: </span><span class="won">£ <%= odd.possible_winnings %></span></p>
+    </div>
+
   </div>
 
   <div class="message-body number_users">

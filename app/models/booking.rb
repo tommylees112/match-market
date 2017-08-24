@@ -4,7 +4,6 @@ class Booking < ApplicationRecord
   has_one :match, through: :odd
   validates :user_id, uniqueness: { scope: :odd_id }
 
-
 def won?
  if (self.match.status == 'FINISHED')
     outcome_true = ""

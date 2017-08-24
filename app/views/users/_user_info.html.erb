@@ -21,6 +21,17 @@
               <p>won</p>
             </td>
             <td class= "data">
+              <h3>£ <%= @user.calculate_current_exposure ? @user.calculate_current_exposure : 0 %></h3>
+              <p>exposure</p>
+            </td>
+
+        </tr>
+        <tr>
+            <td class= "data">
+              <h3>£ <%= @user.calculate_outstanding_bets ? @user.calculate_outstanding_bets : 0 %></h3>
+              <p>pending</p>
+            </td>
+            <td class= "data">
               <h3>£ <%= @user.calculate_total_profit ? @user.calculate_total_profit : 0 %></h3>
               <p>profit</p>
             </td>
