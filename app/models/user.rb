@@ -31,6 +31,40 @@ class User < ApplicationRecord
   end
 
   def calculate_winnings
-    # return #number
+    result = 0
+    self.bookings.each do |booking|
+      if booking.match.status == "FINISHED"
+        if booking.won
+          result += booking.stake * booking.odd.odds
+        else
+          result -= booking.stake
+        end
+      end
+    end
+    return result.
+  end
+
+  def calculate_live_money
+  end
+
+  def calculate_total_profit
   end
 end
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

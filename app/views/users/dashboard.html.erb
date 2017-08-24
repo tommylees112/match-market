@@ -1,3 +1,4 @@
+
 <div class="dashboard-grid">
   <div class="user-info-grid">
         <div class="user-info text-center">
@@ -33,7 +34,7 @@
   <div class="user-sold-grid">
       <h2>Bought</h2>
       <%  @user_bookings.each do |booking|%>
-        <%= render 'shared/dashboard_messages', booking: booking %>
+        <%= render 'shared/dashboard_messages', booking: booking, bet_outcome: booking.won? %>
       <% end %>
   </div>
   <div class="user-bought-grid">
@@ -43,22 +44,3 @@
       <% end %>
   </div>
 </div>
-
-<!-- <div class="container">
-  <div class="row">
-      <div class="col-xs-12 col-sm-6">
-          <p>created</p>
-      </div>
-      <div class="col-xs-12 col-sm-6">
-          <p>bought</p>
-      </div>
-  </div>
-    <div class="row">
-      <div class="col-xs-12 col-sm-6">
-          <p>won</p>
-      </div>
-      <div class="col-xs-12 col-sm-6">
-          <p>profit</p>
-      </div>
-  </div>
-</div> -->

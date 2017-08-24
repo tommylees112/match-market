@@ -14,7 +14,4 @@ class BookingsController < ApplicationController
     params.require(:booking).permit(:stake)
   end
 
-  def has_won?
-  end
-
 end
