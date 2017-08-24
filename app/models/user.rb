@@ -74,12 +74,23 @@ class User < ApplicationRecord
     return result
   end
 
-  def calculate_total_exposure
+  def calculate_total_possible_exposure
     exposure = 0
     # GET THE USER CREATED ODDS AND THERE ASSOCIATED BOOKINGS
     self.odds.each do |odd|
       odd.bookings.each do |booking|
         exposure += (booking.stake * odd.odds) * max_people
+      end
+    end
+    return exposure
+  end
+
+  def calculate_current_exposure
+    exposure = 0
+    # GET THE USER CREATED ODDS AND THERE ASSOCIATED BOOKINGS
+    self.odds.each do |odd|
+      odd.bookings.each do |booking|
+        exposure += (booking.stake * odd.odds) - booking.stake
       end
     end
     return exposure
@@ -105,7 +116,6 @@ class User < ApplicationRecord
     end
     return result
   end
-
 
   def calculate_total_profit
     profit = 0
