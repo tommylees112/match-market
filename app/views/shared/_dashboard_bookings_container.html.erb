@@ -1,0 +1,3 @@
+<% user_bookings.each do |booking| %>
+  <%= render 'shared/dashboard_messages', booking: booking, bet_outcome: booking.won? %>
+<% end %>
