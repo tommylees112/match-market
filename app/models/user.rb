@@ -9,7 +9,6 @@ class User < ApplicationRecord
   has_many :odds
   has_many :bookings
   has_many :comments
-  after_create :send_welcome_email
 
   def self.find_for_facebook_oauth(auth)
     user_params = auth.slice(:provider, :uid)
