@@ -1,18 +1,32 @@
 <div class="message <%= bet_outcome %>">
   <div class="message-body cards-team">
-    <div class="team home-team">
-      <%= image_tag booking.odd.match.home_logo ? booking.odd.match.home_logo : "logo.png", class:"team-avatar" %>
-      <span><%= booking.odd.match.home_team %></span>
-    </div>
-    <div class="team away-team">
-      <%= image_tag booking.odd.match.away_logo ? booking.odd.match.away_logo : "logo.png", class:"team-avatar" %>
-      <span><%= booking.odd.match.away_team %></span>
-    </div>
+        <div class="team home-team">
+          <%= image_tag booking.odd.match.home_logo ? booking.odd.match.home_logo : "logo.png", class:"team-avatar" %>
+          <span><%= booking.odd.match.home_team %></span>
+        </div>
+        <div class="team away-team">
+          <%= image_tag booking.odd.match.away_logo ? booking.odd.match.away_logo : "logo.png", class:"team-avatar" %>
+          <span><%= booking.odd.match.away_team %></span>
+        </div>
   </div>
 
-  <div class="message-body">
-      <div class="text-center"><span>£</span><span class="price"><%= booking.stake %></span></div>
-      <p>on <%= booking.odd.outcome %></p>
+  <div class="message-body score">
+    <% if booking.odd.match.status == "FINISHED" %>
+    <div class="team home-team">
+      <h4><%= booking.odd.match.goals_home_team %></h4>
+    </div>
+    <div class="team away-team">
+      <h4><%= booking.odd.match.goals_away_team %></h4>
+    </div>
+    <% end %>
+  </div>
+
+  <div class="message-body" id="stake">
+    <% if booking.odd.match.status == "FINISHED" %>
+      <%= render 'users/finished_body', booking: booking %>
+    <% else %>
+      <%= render 'users/pending_body', booking: booking %>
+    <% end %>
   </div>
 
   <div class="message-status">
@@ -24,11 +38,13 @@
   </div>
 
   <div class="avatar-container">
-    <%= image_tag booking.odd.user.facebook_picture_url ? @user.facebook_picture_url : "https://api.adorable.io/avatars/285/#{booking.odd.user.email}.png", class: "creator-avatar" %>
+    <% creator = booking.odd.user %>
+    <%= image_tag creator.facebook_picture_url ? creator.facebook_picture_url : "https://api.adorable.io/avatars/285/#{creator.email}.png", class: "creator-avatar" %>
     <div class="hover-box">
-        <h6 class="text-center"><%= booking.odd.user.user_name %></h6>
-        <p><span class="title">won:  </span><span class="won"><%= 3 %></span></p>
-        <p><span class="title">lost:  </span><span class="lost"><%= 1 %></span></p>
+        <h6 class="text-center"><%= creator.user_name %></h6>
+        <p><span class="title">won:  </span><span class="won"><%= creator.calculate_created_odds_won %></span></p>
+        <p><span class="title">lost:  </span><span class="lost"><%= creator.calculate_created_odds_lost %></span></p>
     </div>
   </div>
 </div>
+

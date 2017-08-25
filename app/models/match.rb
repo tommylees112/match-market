@@ -9,8 +9,6 @@ class Match < ApplicationRecord
   validates :gameweek, presence: true, numericality: true
   validates :league, presence: true
 
-
-
 end
 
 

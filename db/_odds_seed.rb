@@ -32,10 +32,21 @@ Match.all.each do |match|
       odds_number = rand(1.1..2.0).round(2)
       odd.odds = odds_number
       odd.user = USER
+      odd.max_people = rand(1..20)
       odd.save!
     end
   end
 end
+
+USERS = User.all
+USERS.sample
+ODDS = Odd.all
+
+ODDS.each do |odd|
+end
+
+
+
 
 ## RAKFILE $ rails odds:seed
 namespace :odds do

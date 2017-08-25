@@ -31,4 +31,17 @@ def won?
    return bet_outcome
  end
 
+ def winnings
+  winnings = 0
+  if self.won
+    winnings += self.stake * self.odd.odds
+  end
+  return winnings.round(2)
+ end
+
+ def potential_winnings
+  winnings = self.stake * self.odd.odds
+  return winnings.round(2)
+ end
+
 end
