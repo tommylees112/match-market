@@ -2,6 +2,10 @@
 
 <div class="container">
     <%= render "shared/match_show_head" %>
+    <div class="flex-center make-odd-button" style="width: 100%">
+      <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#makeOdd">Make Odd</button>
+    </div>
+    <%= render 'shared/modal' %>
     <%= render "shared/match_tab" %>
 
   <div class="container">
@@ -42,8 +46,5 @@
           </div>
       </div>
 
-      <div class="flex-center" style="width: 100%">
-        <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#makeOdd">Make Odd</button>
-      </div>
-      <%= render 'shared/modal' %>
+
 </div>

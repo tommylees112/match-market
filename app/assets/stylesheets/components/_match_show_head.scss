@@ -12,3 +12,13 @@
   };
 }
 
+.make-odd-button {
+  .btn {
+    background-color: $dark-blue;
+    border: none;
+    &:hover {
+      transform: scale(1.1);
+    }
+  }
+  margin-top: 20px;
+}
