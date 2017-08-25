@@ -1,8 +1,8 @@
-.message {
+.comment {
   display: flex;
-  justify-content: space-between;
   align-items: center;
   padding: 10px;
+  margin: 5px;
   height: 80px;
   border-bottom: 1px solid rgba(220,224,244,0.4);
   background-color: #F4F4F4;
@@ -11,22 +11,24 @@
   height: 50px;
   border-radius: 50%;
 }
-.message:last-child {
+.comment:last-child {
   border-bottom: none;
 }
-.message-body {
+.comment-body {
+  padding-left: 0px;
   flex-grow: 1;
-
+  color: $dark-blue;
+  font-size: 13px;
 }
-.message-name {
+.comment-name {
   padding-left: 10px;
-  min-width: 100px;
+  width: 90px;
 }
-.message-name h3 {
+.comment-name h3 {
   font-size: 13px;
   margin-bottom: 0px;
 }
-.message-name p {
+.comment-name p {
   font-size: 13px;
   font-weight: lighter;
   color: $dark-blue;
@@ -34,19 +36,11 @@
   margin-top: 5px;
   margin-bottom: 0px;
 }
-.message-body {
-  padding-left: 10px;
-  font-size: 13px;
-  color: $dark-blue
-}
-.message-body {
-  padding-left: 20px;
-  color: $dark-blue;
-}
-.message-body strong{
+
+.comment-body strong{
   color: rgba(0,0,0,0.9);
   color: rgba(0,0,0,0.9);
 }
-.message-body p {
+.comment-body p {
   margin: 6px 0;
 }
