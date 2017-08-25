@@ -12,8 +12,12 @@
   background: transparent;
   flex: 0 0 25%;
   text-align: center;
-  padding: 20px 0;
+  padding: 0px;
 
+  h3{
+    font-size: 18px;
+    padding-bottom: 10px;
+  }
 
 
   &:hover {
