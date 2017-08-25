@@ -10,11 +10,11 @@
     <% if user_signed_in? %>
 
       <!-- Links when logged in -->
+      <%= link_to "About", about_path, class:"navbar-about" %>
       <%= link_to root_path, class: "navbar-wagon-item navbar-wagon-link" do %>
         <span>Home</span>
       <% end %>
       <%= link_to "Profile", dashboard_path, class: "navbar-wagon-item navbar-wagon-link" %>
-      <%= link_to "About", about_path, class:"navbar-about" %>
 
       <!-- Avatar with dropdown menu -->
       <div class="navbar-wagon-item">
