@@ -80,16 +80,17 @@
     background-color: #001521;
     opacity: 0.85;
     color: #fff;
-    padding: 0;
     margin: 0;
-    border-radius: 6px;
+    padding: 5px;
+    border-radius: 2px;
     position: absolute;
     top:-75px;
-    right: 8px;
-    width: 60px;
+    right: -3px;
+    width: 85px;
     font-size: 14px;
     h6 {
       margin-bottom: 3px;
+      margin-top: 0;
     };
     p {
       margin:0;

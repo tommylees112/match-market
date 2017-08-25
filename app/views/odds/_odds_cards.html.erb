@@ -4,7 +4,8 @@
         <h2><%= odd.odds %></h2>
         <p><%= odd.outcome %></p>
     </div>
-    <% card_avatar_url =  odd.user.facebook_picture_url || "https://api.adorable.io/avatars/285/#{current_user.email}.png" %>
+
+    <% card_avatar_url =  odd.user.facebook_picture_url || "https://api.adorable.io/avatars/285/#{odd.user.email}.png" %>
 
     <div style="background-image: url(<%= image_path card_avatar_url %>);" class="card-avatar">
 

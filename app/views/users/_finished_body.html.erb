@@ -1,0 +1,8 @@
+<div class="text-center"><span>£</span><span class="price"><%= booking.winnings %></span></div>
+<p>
+  <% if booking.odd.outcome == "Home" || booking.odd.outcome == "Away" %>
+    <%= booking.odd.outcome %> win
+  <% else %>
+    <%= booking.odd.outcome %>
+  <% end %>
+</p>

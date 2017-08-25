@@ -2,13 +2,11 @@ $(document).ready(function() {
 
 
     var load = $(".fixture_tab").first();
-    console.log(load);
     load.addClass("active");
     $(".fixtures").removeClass("active");
     $(load.data("target")).addClass("active");
     $(".gameweek_fixtures").removeClass("active");
     $(".fixtures.active #game_week" + load.data("week")).addClass("active");
-
 
 
   $(".fixture_tab").click(function(){

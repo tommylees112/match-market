@@ -64,6 +64,26 @@ class User < ApplicationRecord
 
   ## METHODS FOR CREATED ODDS (that the user has created)
 
+  def calculate_created_odds_won
+    counter = 0
+    counter += self.odds.joins(:match).where(matches: {status: 'FINISHED'}).where(odds: {outcome: 'Away'}).where("matches.goals_home_team < matches.goals_away_team").count
+    counter += self.odds.joins(:match).where(matches: {status: 'FINISHED'}).where(odds: {outcome: 'Home'}).where("matches.goals_home_team > matches.goals_away_team").count
+    counter += self.odds.joins(:match).where(matches: {status: 'FINISHED'}).where(odds: {outcome: 'Draw'}).where("matches.goals_home_team = matches.goals_away_team").count
+    return counter
+  end
+
+  def calculate_created_odds_lost
+    counter = 0
+    counter += self.odds.joins(:match).where(matches: {status: 'FINISHED'}).where(odds: {outcome: 'Away'}).where.not("matches.goals_home_team < matches.goals_away_team").count
+    counter += self.odds.joins(:match).where(matches: {status: 'FINISHED'}).where(odds: {outcome: 'Home'}).where.not("matches.goals_home_team > matches.goals_away_team").count
+    counter += self.odds.joins(:match).where(matches: {status: 'FINISHED'}).where(odds: {outcome: 'Draw'}).where.not("matches.goals_home_team = matches.goals_away_team").count
+    return counter
+  end
+
+  def calculate_created_odds_pending
+    return self.odds.joins(:match).where("matches.status = 'SCHEDULED' OR matches.status = 'TIMED'").count
+  end
+
   def calculate_possible_return
     result = 0
     self.odds.each do |odd|
