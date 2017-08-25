@@ -1,6 +1,5 @@
 .message {
   display: flex;
-  justify-content: space-between;
   align-items: center;
   padding: 10px;
   height: 80px;
@@ -15,12 +14,14 @@
   border-bottom: none;
 }
 .message-body {
+  padding-left: 0px;
   flex-grow: 1;
-
+  color: $dark-blue;
+  font-size: 13px;
 }
 .message-name {
   padding-left: 10px;
-  min-width: 100px;
+  width: 90px;
 }
 .message-name h3 {
   font-size: 13px;
@@ -34,15 +35,7 @@
   margin-top: 5px;
   margin-bottom: 0px;
 }
-.message-body {
-  padding-left: 10px;
-  font-size: 13px;
-  color: $dark-blue
-}
-.message-body {
-  padding-left: 20px;
-  color: $dark-blue;
-}
+
 .message-body strong{
   color: rgba(0,0,0,0.9);
   color: rgba(0,0,0,0.9);
