@@ -1,16 +1,27 @@
 <div class="message <%= bet_outcome %>">
   <div class="message-body cards-team">
-    <div class="team home-team">
-      <%= image_tag booking.odd.match.home_logo ? booking.odd.match.home_logo : "logo.png", class:"team-avatar" %>
-      <span><%= booking.odd.match.home_team %></span>
-    </div>
-    <div class="team away-team">
-      <%= image_tag booking.odd.match.away_logo ? booking.odd.match.away_logo : "logo.png", class:"team-avatar" %>
-      <span><%= booking.odd.match.away_team %></span>
-    </div>
+        <div class="team home-team">
+          <%= image_tag booking.odd.match.home_logo ? booking.odd.match.home_logo : "logo.png", class:"team-avatar" %>
+          <span><%= booking.odd.match.home_team %></span>
+        </div>
+        <div class="team away-team">
+          <%= image_tag booking.odd.match.away_logo ? booking.odd.match.away_logo : "logo.png", class:"team-avatar" %>
+          <span><%= booking.odd.match.away_team %></span>
+        </div>
   </div>
 
-  <div class="message-body">
+  <div class="message-body score">
+    <% if booking.odd.match.status == "FINISHED" %>
+    <div class="team home-team">
+      <h4><%= booking.odd.match.goals_home_team %></h4>
+    </div>
+    <div class="team away-team">
+      <h4><%= booking.odd.match.goals_away_team %></h4>
+    </div>
+    <% end %>
+  </div>
+
+  <div class="message-body" id="stake">
     <% if booking.odd.match.status == "FINISHED" %>
       <%= render 'users/finished_body', booking: booking %>
     <% else %>

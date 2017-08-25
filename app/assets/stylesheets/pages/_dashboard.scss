@@ -43,3 +43,43 @@
   grid-column: 1/span 2;
   grid-row: 2/span 1;
 }
+
+.message-body#stake{
+  .hover-box {
+    margin:0;
+    visibility: hidden;
+    background-color: #001521;
+    opacity: 0.85;
+    color: #fff;
+    margin: 0;
+    padding: 5px;
+    border-radius: 2px;
+    position: absolute;
+    top:-55px;
+    right: 238px;
+    width: 85px;
+    font-size: 14px;
+    h6 {
+      margin-bottom: 3px;
+      margin-top: 0;
+    };
+    p {
+      margin:0;
+      padding:0;
+      padding-left: 3px;
+    }
+    .title {
+      font-style: italic;
+    }
+    .won {
+      color: $green;
+    };
+    .lost {
+      color: $red;
+    };
+  }
+  &:hover .hover-box {
+    visibility:visible;
+    z-index:1;
+  };
+}

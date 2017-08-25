@@ -39,4 +39,9 @@ def won?
   return winnings.round(2)
  end
 
+ def potential_winnings
+  winnings = self.stake * self.odd.odds
+  return winnings.round(2)
+ end
+
 end
