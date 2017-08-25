@@ -8,7 +8,6 @@ gem 'pg'
 gem 'puma'
 gem 'rails', '5.0.5'
 gem 'redis'
-gem 'kaminari'
 
 gem 'autoprefixer-rails'
 gem 'bootstrap-sass'
@@ -26,9 +25,9 @@ gem "letter_opener", group: :development
 gem "coffee-rails"
 gem "gmaps4rails"
 gem "geocoder"
+gem "underscore-rails"
 
-
-source 'https://rails-assets.org' do
+source "https://rails-assets.org" do
   gem "rails-assets-underscore"
 end
 
