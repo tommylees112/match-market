@@ -4,11 +4,12 @@
   </div>
   <div class="user-sold-grid">
       <h2>Bought</h2>
-      <%= link_to 'All', dashboard_path(b: 'all'), remote: true %> -
-      <%= link_to 'Win', dashboard_path(b: 'win'), remote: true %> -
-      <%= link_to 'Lost', dashboard_path(b: 'lost'), remote: true %> -
-      <%= link_to 'Pending', dashboard_path(b: 'pending'), remote: true %>
-
+      <div class="filter-bar">
+        <%= link_to 'All', dashboard_path(b: 'all'), remote: true, class: "tab" %>
+        <%= link_to 'Won', dashboard_path(b: 'win'), remote: true, class: "tab" %>
+        <%= link_to 'Lost', dashboard_path(b: 'lost'), remote: true, class: "tab" %>
+        <%= link_to 'Pending', dashboard_path(b: 'pending'), remote: true, class: "tab" %>
+      </div>
       <div id="booking-container">
         <%= render 'shared/dashboard_bookings_container', user_bookings: @user_bookings %>
       </div>
@@ -16,10 +17,12 @@
   </div>
   <div class="user-bought-grid">
       <h2>Sold</h2>
-      <%= link_to 'All', dashboard_path(s: 'all'), remote: true %> -
-      <%= link_to 'Win', dashboard_path(s: 'win'), remote: true %> -
-      <%= link_to 'Lost', dashboard_path(s: 'lost'), remote: true %> -
-      <%= link_to 'Pending', dashboard_path(s: 'pending'), remote: true %>
+      <div class="filter-bar">
+        <%= link_to 'All', dashboard_path(s: 'all'), remote: true, class: "tab" %>
+        <%= link_to 'Won', dashboard_path(s: 'win'), remote: true, class: "tab" %>
+        <%= link_to 'Lost', dashboard_path(s: 'lost'), remote: true, class: "tab" %>
+        <%= link_to 'Pending', dashboard_path(s: 'pending'), remote: true, class: "tab" %>
+      </div>
 
       <div id="sold-odds-container">
       <%= render 'shared/dashboard_sold_odds_container', created_odds: @created_odds %>

@@ -83,3 +83,42 @@
     z-index:1;
   };
 }
+
+.filter-bar {
+  display: flex;
+  background-color: white;
+  border-radius: 15px;
+  width: 100%;
+
+  .tab {
+    color: $dark-blue;
+    text-decoration: none;
+    background: transparent;
+    flex: 0 0 25%;
+    text-align: center;
+    padding: 10px 0;
+
+    &:hover {
+      color: $dark-blue;
+      // transform: scale(1.1);
+      background-color: $green;
+      cursor: pointer;
+      text-decoration: none;
+      opacity: 0.8
+    }
+  }
+  .tab:first-child {
+    border-radius: 10px 0 0 10px;
+  }
+  .tab:last-child {
+    border-radius: 0 10px 10px 0;
+  }
+  .tab.active {
+    background: $green;
+    color: $dark-blue;
+  }
+}
+
+
+
+
