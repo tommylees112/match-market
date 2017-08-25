@@ -21,12 +21,12 @@ end
 tommy = User.find(1) #_by_email("thomas.lees@chch.ox.ac.uk")
 hamish = User.find(3) #_by_email("hachall@hotmail.com")
 adrian = User.find(2) #_by_email("walkerrrrrrr@gmail.com")
-USER = User.find(4) #[tommy, hamish, adrian]
+USER = User.find(1) #[tommy, hamish, adrian]
 OUTCOME = ["Home", "Away", "Draw"]
 
 Match.all.each do |match|
   OUTCOME.each do |outcome|
-    3.times do
+    1.times do
       odd = Odd.new(match: match)
       odd.outcome = outcome
       odds_number = rand(1.1..2.0).round(2)
