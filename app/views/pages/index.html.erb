@@ -1,0 +1,60 @@
+<div class="about">
+  <div class="row">
+    <div class="col-xs-9 col-sm-8 col-md-8 test">
+      <div class="col-xs-12 col-sm-6 col-md-12">
+        <div class="about-content">
+          <h1 class="this-page">This page was built by</h1>
+          <ul class="list-inline">
+              <li>
+                <%= image_tag 'adrian.jpeg', class:"about-avatar" %>
+                <a href="https://github.com/lamperoyge"><i class ="fa fa-github fa1">lamperoyge</i></a>
+              </li>
+              <li>
+                <%= image_tag 'hamish.jpeg', class:"about-avatar" %>
+                <a href="https://github.com/hachall"><i class ="fa fa-github fa2">hachall</i></a>
+              </li>
+              <li>
+                <% link_to "https://kitt.lewagon.com/alumni/hachall"%>
+                <%= image_tag 'tommy.jpeg', class:"about-avatar" %>
+                <a href="https://github.com/tommylees112"><i class ="fa fa-github fa3">tommylees112</i></a>
+              </li>
+            </ul>
+              <div class="address">
+            <i class="fa fa-heart"></i>
+            <p>14-22 Elder St</p>
+            <p>London E1 6BT</p>
+              </div>
+          </div>
+        </div>
+    </div>
+
+    <div class="col-xs-3 col-sm-4 col-md-4 ">
+      <div id="map"></div>
+    </div>
+  </div>
+</div>
+    <%= content_for :after_js do %>
+      <script>
+        var styles = [{"featureType":"all","elementType":"labels.text.fill","stylers":[{"color":"#ffffff"}]},{"featureType":"all","elementType":"labels.text.stroke","stylers":[{"color":"#000000"},{"lightness":13}]},{"featureType":"administrative","elementType":"geometry.fill","stylers":[{"color":"#000000"}]},{"featureType":"administrative","elementType":"geometry.stroke","stylers":[{"color":"#144b53"},{"lightness":14},{"weight":1.4}]},{"featureType":"landscape","elementType":"all","stylers":[{"color":"#08304b"}]},{"featureType":"poi","elementType":"geometry","stylers":[{"color":"#0c4152"},{"lightness":5}]},{"featureType":"road.highway","elementType":"geometry.fill","stylers":[{"color":"#000000"}]},{"featureType":"road.highway","elementType":"geometry.stroke","stylers":[{"color":"#0b434f"},{"lightness":25}]},{"featureType":"road.arterial","elementType":"geometry.fill","stylers":[{"color":"#000000"}]},{"featureType":"road.arterial","elementType":"geometry.stroke","stylers":[{"color":"#0b3d51"},{"lightness":16}]},{"featureType":"road.local","elementType":"geometry","stylers":[{"color":"#000000"}]},{"featureType":"transit","elementType":"all","stylers":[{"color":"#146474"}]},{"featureType":"water","elementType":"all","stylers":[{"color":"#021019"}]}]
+
+        var handler = Gmaps.build('Google', { markers: { clusterer: undefined } });
+              handler.buildMap({ internal: { id: 'map' }, provider: { styles: styles } }, function() {
+                markers = handler.addMarkers(
+                  [
+                    {
+                      "lat": 51.521498,
+                      "lng": -0.076946
+                    }
+                  ]
+                );
+                handler.bounds.extendWith(markers);
+                handler.fitMapToBounds();
+                handler.getMap().setZoom(18);
+              });
+      </script>
+    <% end %>
+
+
+
+
+

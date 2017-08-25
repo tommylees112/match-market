@@ -26,6 +26,16 @@ ActiveRecord::Schema.define(version: 20170825134251) do
     t.index ["user_id"], name: "index_bookings_on_user_id", using: :btree
   end
 
+  create_table "comments", force: :cascade do |t|
+    t.text     "content"
+    t.integer  "user_id"
+    t.integer  "match_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["match_id"], name: "index_comments_on_match_id", using: :btree
+    t.index ["user_id"], name: "index_comments_on_user_id", using: :btree
+  end
+
   create_table "matches", force: :cascade do |t|
     t.datetime "created_at",      null: false
     t.datetime "updated_at",      null: false
@@ -81,6 +91,8 @@ ActiveRecord::Schema.define(version: 20170825134251) do
 
   add_foreign_key "bookings", "odds"
   add_foreign_key "bookings", "users"
+  add_foreign_key "comments", "matches"
+  add_foreign_key "comments", "users"
   add_foreign_key "odds", "matches"
   add_foreign_key "odds", "users"
 end
