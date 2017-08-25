@@ -26,8 +26,11 @@ user_1 = User.find(21) #[tommy, hamish, adrian]
 user_2 = User.find(19) #[tommy, hamish, adrian]
 user_3 = User.find(24) #[tommy, hamish, adrian]
 user_4 = User.find(25) #[tommy, hamish, adrian]
+arthur = User.find(26)
+hamish = User.find(22)
+adrian = User.find()
 
-USER = [user_1, user_2, user_3, user_4]
+USER = [arthur, hamish]
 OUTCOME = ["Home", "Away", "Draw"]
 
 Match.all.each do |match|
@@ -54,7 +57,7 @@ tommy = User.find(20)
 tommy_odd = tommy.odds.first
 
 3.times do
-  booking = booking.new
+  booking = Booking.new
   booking.user = User.all.sample
   booking.odd = tommy_odd
   booking.stake = rand(1..20)
@@ -63,10 +66,6 @@ end
 ODDS.each do |odd|
 
 end
-
-
-
-
 
 ## RAKFILE $ rails odds:seed
 namespace :odds do
