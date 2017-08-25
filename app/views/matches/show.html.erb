@@ -56,7 +56,7 @@
     </div>
     <div class="comments_list" id="comments_list">
       <% @match.comments.reverse.each do |comment| %>
-        <%= render 'comments/comment_show', comment: comment %>
+        <%= render 'comments/comment_show', comment: comment, booking: @booking %>
       <% end %>
     </div>
     <div class="comment_form" id="comment_form">
