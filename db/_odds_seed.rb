@@ -22,7 +22,6 @@ tommy = User.find(1) #_by_email("thomas.lees@chch.ox.ac.uk")
 hamish = User.find(3) #_by_email("hachall@hotmail.com")
 adrian = User.find(2) #_by_email("walkerrrrrrr@gmail.com")
 
-
 user_1 = User.find(21) #[tommy, hamish, adrian]
 user_2 = User.find(19) #[tommy, hamish, adrian]
 user_3 = User.find(24) #[tommy, hamish, adrian]
@@ -49,8 +48,19 @@ USERS = User.all
 USERS.sample
 ODDS = Odd.all
 
-ODDS.each do |odd|
+
+USER = [user_1, user_2, user_3, user_4]
+tommy = User.find(20)
+tommy_odd = tommy.odds.first
+
+3.times do
   booking = booking.new
+  booking.user = User.all.sample
+  booking.odd = tommy_odd
+  booking.stake = rand(1..20)
+end
+
+ODDS.each do |odd|
 
 end
 
