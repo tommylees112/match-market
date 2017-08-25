@@ -15,7 +15,7 @@
   flex: 0 0 400px;
   height: calc(100vh - 70px);
   position: sticky !important;
-  top: 0 !important;
+  top:  0 !important;
   border-radius: 4px;
   margin: 20px;
   h2 {
@@ -40,8 +40,8 @@
   // width: auto;
 }
 
-.comment_list {
-  background-color: #F4F4F4;
+.comments_list {
+
   overflow: scroll;
-  height: calc(100vh - 250px);
+  height: 400px;
 }
