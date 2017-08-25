@@ -4,7 +4,7 @@
   <%= image_tag comment.user.facebook_picture_url ? comment.user.facebook_picture_url : "https://api.adorable.io/avatars/285/#{booking.odd.user.email}.png", class: "avatar-small creator-avatar" %>
   <div class="message-name">
     <p> <%= comment.user.user_name %> </p>
-    <p> <%= comment.created_at.strftime('%b %e, %l:%M %p') %></p>
+    <p> <%= comment.created_at.strftime('%l:%M %p') %></p>
   </div>
   <div class="message-body">
     <p>
