@@ -3,8 +3,8 @@ Rails.application.routes.draw do
     controllers: { omniauth_callbacks: 'users/omniauth_callbacks' }
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   root to: "matches#index"
-
   resources :matches, only: [:index, :show] do
+  resources :comments, only: [:create]
     resources :odds, only: [:show, :create, :new] do
       resources :bookings, only: [:create]
     end

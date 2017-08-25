@@ -1,50 +1,72 @@
 <% content_for :title, "Odds"   %>
 
-<div class="container">
-    <%= render "shared/match_show_head" %>
-    <div class="flex-center make-odd-button" style="width: 100%">
-      <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#makeOdd">Make Odd</button>
+<div class="match_page">
+
+  <div class="match-info">
+      <%= render "shared/match_show_head" %>
+      <div class="flex-center make-odd-button" style="width: 100%">
+        <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#makeOdd">Make Odd</button>
+      </div>
+      <%= render 'shared/modal' %>
+      <%= render "shared/match_tab" %>
+
+
+        <div class="odds active" id="all">
+            <div class="row">
+              <% @all_odds.each do |odd| %>
+                <div class="col-xs-6 col-sm-4">
+                  <%= render "odds/odds_cards", odd: odd, normal_id: false %>
+                </div>
+              <% end %>
+            </div>
+        </div>
+        <div class="odds active" id="home">
+            <div class="row">
+              <% @home_odds.each do |odd| %>
+                <div class="col-xs-6 col-sm-4">
+                  <%= render "odds/odds_cards", odd: odd, normal_id: true %>
+                </div>
+              <% end %>
+            </div>
+        </div>
+        <div class="odds" id="away">
+            <div class="row">
+              <% @away_odds.each do |odd| %>
+                <div class="col-xs-6 col-sm-4">
+                  <%= render "odds/odds_cards", odd: odd, normal_id: true %>
+                </div>
+              <% end %>
+            </div>
+        </div>
+        <div class="odds" id="draw">
+            <div class="row">
+              <% @draw_odds.each do |odd| %>
+                <div class="col-xs-6 col-sm-4">
+                  <%= render "odds/odds_cards", odd: odd, normal_id: true %>
+                </div>
+              <% end %>
+            </div>
+        </div>
+
+  </div>
+
+  <div class="comment_board">
+    <div class="comment_header">
+      <h2>Comments:</h2>
     </div>
-    <%= render 'shared/modal' %>
-    <%= render "shared/match_tab" %>
+    <div class="comments_list">
+      <% @match.comments.each do |comment| %>
+        <%= render 'comments/show', comment: comment %>
+      <% end %>
+    </div>
+    <div class="comment_form">
+      <%= simple_form_for [@match, @comment] do |f| %>
+          <%= f.input :content, label: 'Write a comment:'  %>
+          <%= f.submit  %>
+      <% end %>
 
-  <div class="container">
-      <div class="odds active" id="all">
-          <div class="row">
-            <% @all_odds.each do |odd| %>
-              <div class="col-xs-6 col-sm-4">
-                <%= render "odds/odds_cards", odd: odd, normal_id: false %>
-              </div>
-            <% end %>
-          </div>
-      </div>
-      <div class="odds active" id="home">
-          <div class="row">
-            <% @home_odds.each do |odd| %>
-              <div class="col-xs-6 col-sm-4">
-                <%= render "odds/odds_cards", odd: odd, normal_id: true %>
-              </div>
-            <% end %>
-          </div>
-      </div>
-      <div class="odds" id="away">
-          <div class="row">
-            <% @away_odds.each do |odd| %>
-              <div class="col-xs-6 col-sm-4">
-                <%= render "odds/odds_cards", odd: odd, normal_id: true %>
-              </div>
-            <% end %>
-          </div>
-      </div>
-      <div class="odds" id="draw">
-          <div class="row">
-            <% @draw_odds.each do |odd| %>
-              <div class="col-xs-6 col-sm-4">
-                <%= render "odds/odds_cards", odd: odd, normal_id: true %>
-              </div>
-            <% end %>
-          </div>
-      </div>
-
+    </div>
+  </div>
 
 </div>
+

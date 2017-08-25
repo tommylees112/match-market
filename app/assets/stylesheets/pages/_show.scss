@@ -1,0 +1,44 @@
+.odds {
+  display: none;
+  &.active {
+    display: block;
+  }
+}
+
+.match_page {
+  display: flex;
+  justify-content: space-between;
+}
+
+.comment_board {
+  background-color: white;
+  flex: 400px;
+  height: calc(100vh - 70px);
+  position: sticky !important;
+  top: 0 !important;
+  border-radius: 4px;
+  margin: 20px;
+  h2 {
+    margin-left: 20px;
+    color: $dark-blue;
+    font-weight: bold;
+  }
+  position: relative;
+}
+
+.match-info {
+  margin-left: 20px;
+}
+
+.comment_form {
+  margin: 20px 20px;
+  position: absolute;
+  bottom: 20px;
+  right: 10px;
+  left: 10px;
+  width: auto;
+}
+
+.comment_list {
+  background-color: #F4F4F4;
+}
