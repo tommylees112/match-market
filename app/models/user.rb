@@ -45,7 +45,7 @@ class User < ApplicationRecord
         if booking.won
           result += booking.stake * booking.odd.odds
         else
-          result -= booking.stake
+          booking.stake ? result -= booking.stake : result
         end
       end
     end
@@ -102,7 +102,7 @@ class User < ApplicationRecord
         exposure += (booking.stake * odd.odds) * max_people
       end
     end
-    return exposure
+    return exposure.round(2)
   end
 
   def calculate_current_exposure
@@ -113,7 +113,7 @@ class User < ApplicationRecord
         exposure += (booking.stake * odd.odds) - booking.stake
       end
     end
-    return exposure
+    return exposure.round(2)
   end
 
   def calculate_created_winnings
@@ -134,7 +134,7 @@ class User < ApplicationRecord
         end
       end
     end
-    return result
+    return result.round(2)
   end
 
   def calculate_total_profit

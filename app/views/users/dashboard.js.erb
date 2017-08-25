@@ -1,0 +1,7 @@
+<%= if params[:b] %>
+  var boughtContainer = document.getElementById('booking-container');
+  boughtContainer.innerHTML = "<%= j render 'shared/dashboard_bookings_container', user_bookings: @user_bookings %>"
+<%= elsif params[:s] %>
+  var boughtContainer = document.getElementById('sold-odds-container');
+  boughtContainer.innerHTML = "<%= j render 'shared/dashboard_sold_odds_container', created_odds: @created_odds %>"
+<% end %>

@@ -1,0 +1,3 @@
+<%  @created_odds.each do |odd|%>
+  <%= render 'users/owned_odds', odd: odd, bet_outcome: odd.won? %>
+<% end %>
