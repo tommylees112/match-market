@@ -8,6 +8,7 @@ class User < ApplicationRecord
   has_many :owned_odds, through: :bookings, source: :odds
   has_many :odds
   has_many :bookings
+  has_many :comments
   after_create :send_welcome_email
 
   def self.find_for_facebook_oauth(auth)
@@ -45,7 +46,7 @@ class User < ApplicationRecord
         if booking.won
           result += booking.stake * booking.odd.odds
         else
-          result -= booking.stake
+          booking.stake ? result -= booking.stake : result
         end
       end
     end
@@ -63,6 +64,26 @@ class User < ApplicationRecord
   end
 
   ## METHODS FOR CREATED ODDS (that the user has created)
+
+  def calculate_created_odds_won
+    counter = 0
+    counter += self.odds.joins(:match).where(matches: {status: 'FINISHED'}).where(odds: {outcome: 'Away'}).where("matches.goals_home_team < matches.goals_away_team").count
+    counter += self.odds.joins(:match).where(matches: {status: 'FINISHED'}).where(odds: {outcome: 'Home'}).where("matches.goals_home_team > matches.goals_away_team").count
+    counter += self.odds.joins(:match).where(matches: {status: 'FINISHED'}).where(odds: {outcome: 'Draw'}).where("matches.goals_home_team = matches.goals_away_team").count
+    return counter
+  end
+
+  def calculate_created_odds_lost
+    counter = 0
+    counter += self.odds.joins(:match).where(matches: {status: 'FINISHED'}).where(odds: {outcome: 'Away'}).where.not("matches.goals_home_team < matches.goals_away_team").count
+    counter += self.odds.joins(:match).where(matches: {status: 'FINISHED'}).where(odds: {outcome: 'Home'}).where.not("matches.goals_home_team > matches.goals_away_team").count
+    counter += self.odds.joins(:match).where(matches: {status: 'FINISHED'}).where(odds: {outcome: 'Draw'}).where.not("matches.goals_home_team = matches.goals_away_team").count
+    return counter
+  end
+
+  def calculate_created_odds_pending
+    return self.odds.joins(:match).where("matches.status = 'SCHEDULED' OR matches.status = 'TIMED'").count
+  end
 
   def calculate_possible_return
     result = 0
@@ -82,7 +103,7 @@ class User < ApplicationRecord
         exposure += (booking.stake * odd.odds) * max_people
       end
     end
-    return exposure
+    return exposure.round(2)
   end
 
   def calculate_current_exposure
@@ -93,7 +114,7 @@ class User < ApplicationRecord
         exposure += (booking.stake * odd.odds) - booking.stake
       end
     end
-    return exposure
+    return exposure.round(2)
   end
 
   def calculate_created_winnings
@@ -114,7 +135,7 @@ class User < ApplicationRecord
         end
       end
     end
-    return result
+    return result.round(2)
   end
 
   def calculate_total_profit

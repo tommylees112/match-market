@@ -22,6 +22,17 @@
     </div>
   </div>
 
+  <div class="message-body score">
+    <% if odd.match.status == "FINISHED" %>
+    <div class="team home-team">
+      <h4><%= odd.match.goals_home_team %></h4>
+    </div>
+    <div class="team away-team">
+      <h4><%= odd.match.goals_away_team %></h4>
+    </div>
+    <% end %>
+  </div>
+
   <div class="message-body text-center exposure">
       <span class="price"><%= odd.odds %></span>
       <p>on <%= odd.outcome %></p>
@@ -38,7 +49,7 @@
       <span class="price text-center"><%= odd.number_of_current_bookings %>
     <div class="hover-box">
         <h6 class="text-center">Max Users</h6>
-        <p><span class="title"></span><span class="won"><%= odd.number_of_current_bookings %></span></p>
+        <p><span class="title"></span><span class="won"><%= odd.max_people %></span></p>
     </div>
   </div>
 

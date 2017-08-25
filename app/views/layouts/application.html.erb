@@ -3,6 +3,7 @@
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
     <link href="https://fonts.googleapis.com/css?family=Quicksand" rel="stylesheet">
     <%= favicon_link_tag 'favicon.ico' %>
     <title><%= yield(:title) %></title>
@@ -15,6 +16,11 @@
     <%= render "shared/flashes" %>
     <%= yield %>
     <%= render "shared/footer" %>
-    <%= javascript_include_tag 'application' %>
+    <%= javascript_include_tag "https://maps.googleapis.com/maps/api/js?key=AIzaSyBjlQE77qyopzu54KCmV0iSBFW7NGLJ-sA" %>
+    <%= javascript_include_tag "https://cdn.rawgit.com/printercu/google-maps-utility-library-v3-read-only/master/markerclusterer/src/markerclusterer_compiled.js" %>
+    <%= javascript_include_tag "https://cdn.rawgit.com/printercu/google-maps-utility-library-v3-read-only/master/infobox/src/infobox_packed.js" %>
+
+    <%= javascript_include_tag "application" %>
+    <%= yield(:after_js) %>
   </body>
 </html>

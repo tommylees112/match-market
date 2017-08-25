@@ -22,9 +22,11 @@ class Odd < ApplicationRecord
      end
 
     if (self.outcome == outcome_true)
-      bet_outcome = "win"
-    else
       bet_outcome = "lose"
+      self.update(won: false)
+    else
+      bet_outcome = "win"
+      self.update(won: true)
     end
 
    else

@@ -1,0 +1,14 @@
+<div class="text-center"><span>£</span><span class="price"><%= booking.stake %></span></div>
+<p>on <%= booking.odd.outcome %></p>
+
+<% if booking.won %>
+  <div class="hover-box">
+      <h6 class="text-center">winnings</h6>
+      <p>£ <span class="won"><%= booking.winnings %></span></p>
+  </div>
+<% else %>
+    <div class="hover-box">
+      <h6 class="text-center">lost</h6>
+      <p>£ <span class="lost"><%= booking.stake %></span></p>
+  </div>
+<% end %>
