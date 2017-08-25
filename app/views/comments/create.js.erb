@@ -1,0 +1,8 @@
+<% if @comment.errors.any? %>
+  $('#comment_form').html("<%= j render 'comments/form', match: @match, comment: @comment %>");
+<% else %>
+  var new_comment = $("<%= j render 'comments/comment_show', comment: @comment %>").hide();
+  $('#comments_list').append(new_comment);
+  new_comment.slideDown();
+  $('#comment_form').html("<%= j render 'comments/form', match: @match, comment: Comment.new %>");
+<% end %>

@@ -12,7 +12,7 @@
 
 .comment_board {
   background-color: white;
-  flex: 400px;
+  flex: 0 0 400px;
   height: calc(100vh - 70px);
   position: sticky !important;
   top: 0 !important;
@@ -28,6 +28,7 @@
 
 .match-info {
   margin-left: 20px;
+  flex-grow: 1;
 }
 
 .comment_form {
@@ -36,9 +37,11 @@
   bottom: 20px;
   right: 10px;
   left: 10px;
-  width: auto;
+  // width: auto;
 }
 
 .comment_list {
   background-color: #F4F4F4;
+  overflow: scroll;
+  height: calc(100vh - 250px);
 }

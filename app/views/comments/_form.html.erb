@@ -1,0 +1,4 @@
+<%= simple_form_for( [ match, comment ], remote: true) do |f| %>
+    <%= f.input :content, label: 'Write a comment:'  %>
+    <%= f.submit  %>
+<% end %>

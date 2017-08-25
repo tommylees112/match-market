@@ -54,19 +54,14 @@
     <div class="comment_header">
       <h2>Comments:</h2>
     </div>
-    <div class="comments_list">
+    <div class="comments_list" id="comments_list">
       <% @match.comments.each do |comment| %>
-        <%= render 'comments/show', comment: comment %>
+        <%= render 'comments/comment_show', comment: comment %>
       <% end %>
     </div>
-    <div class="comment_form">
-      <%= simple_form_for [@match, @comment] do |f| %>
-          <%= f.input :content, label: 'Write a comment:'  %>
-          <%= f.submit  %>
-      <% end %>
-
+    <div class="comment_form" id="comment_form">
+      <%= render 'comments/form', match: @match, comment: @comment %>
     </div>
   </div>
-
 </div>
 
